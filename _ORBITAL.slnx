@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/DESKTOP/">
+    <Project Path="DESKTOP_ORBITAL/VIEW_CORE/VIEW_CORE.csproj" />
+    <Project Path="DESKTOP_ORBITAL/VIEW_ENGINE/VIEW_ENGINE.csproj" />
+  </Folder>
+  <Folder Name="/DESKTOP/Docs/" />
+  <Folder Name="/DESKTOP/Docs/.guidelines/" />
+  <Folder Name="/DESKTOP/Docs/.scope/" />
+</Solution>
