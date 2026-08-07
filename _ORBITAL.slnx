@@ -1,9 +1,23 @@
 <Solution>
+  <Folder Name="/API/">
+    <Project Path="API_ORBITAL/SATELLITE_ENGINE/SATELLITE_ENGINE.csproj" />
+    <Project Path="API_ORBITAL/SATELLITE_CORE/SATELLITE_CORE.csproj" />
+    <Project Path="API_ORBITAL/SATELLITE_DRIVE/SATELLITE_DRIVE.csproj" />
+    <Project Path="API_ORBITAL/API_PANEL/API_PANEL.csproj" />
+  </Folder>
+  <Folder Name="/DATA/">
+    <Project Path="DATA_ORBITAL/VAULT_ENGINE/VAULT_ENGINE.csproj" />
+    <Project Path="DATA_ORBITAL/VAULT_CORE/VAULT_CORE.csproj" />
+  </Folder>
   <Folder Name="/DESKTOP/">
-    <Project Path="DESKTOP_ORBITAL/VIEW_CORE/VIEW_CORE.csproj" />
     <Project Path="DESKTOP_ORBITAL/VIEW_ENGINE/VIEW_ENGINE.csproj" />
+    <Project Path="DESKTOP_ORBITAL/VIEW_CORE/VIEW_CORE.csproj" />
   </Folder>
   <Folder Name="/DESKTOP/Docs/" />
   <Folder Name="/DESKTOP/Docs/.guidelines/" />
   <Folder Name="/DESKTOP/Docs/.scope/" />
+  <Folder Name="/MIDDLEWARE/">
+    <Project Path="MIDDLEWARE_ORBITAL/RELAY_ENGINE/RELAY_ENGINE.csproj" />
+    <Project Path="MIDDLEWARE_ORBITAL/RELAY_CORE/RELAY_CORE.csproj" />
+  </Folder>
 </Solution>
