@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!--
+	  _ENGINE: pure relay logic.
+	  Decoupling proof: this project references NOTHING. Not API_ORBITAL, not DATA_ORBITAL,
+	  not ASP.NET. It moves opaque payloads and never learns what is inside them.
+	-->
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+</Project>
