@@ -62,9 +62,11 @@ public sealed class SLedger(IMedallionOperations medallions) : ILedgerOperations
             ledger.CountAt(EMedallionTier.Quarantined));
     }
 
-    private static bool HasStopped(MLedger before, MLedger after) =>
-        before.CountAt(EMedallionTier.Gold) == after.CountAt(EMedallionTier.Gold)
-        && before.CountAt(EMedallionTier.Quarantined) == after.CountAt(EMedallionTier.Quarantined);
+    /// <summary>
+    /// The batch has stopped when the whole tier distribution repeats — not merely when
+    /// gold and quarantine hold still, which is also true of every bronze-to-silver pass.
+    /// </summary>
+    private bool HasStopped(MLedger before, MLedger after) => TallyOf(before) == TallyOf(after);
 
     private ELedgerState VerdictFor(MLedger ledger)
     {
