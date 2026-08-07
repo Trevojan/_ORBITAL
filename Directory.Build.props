@@ -14,4 +14,23 @@
 		<NoWarn>$(NoWarn);1591</NoWarn>
 	</PropertyGroup>
 
+	<!--
+	  Every _PROBE is a test project and they are all identical in their tooling,
+	  so the tooling is declared once here. A _PROBE.csproj carries only the
+	  ProjectReference naming what it probes.
+	-->
+	<PropertyGroup Condition="$(MSBuildProjectName.EndsWith('_PROBE'))">
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup Condition="$(MSBuildProjectName.EndsWith('_PROBE'))">
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+		<PackageReference Include="xunit" Version="2.9.3" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
+		<PackageReference Include="coverlet.collector" Version="6.0.4" />
+		<Using Include="Xunit" />
+	</ItemGroup>
+
 </Project>
