@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!--
+	  _DRIVE: endpoints and requests, once they outgrow the _CORE.
+	  It owns the wire shape (R* records) and nothing else — no business rules.
+	  FrameworkReference, not Sdk.Web: this is a library of endpoints, not a host.
+	-->
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SATELLITE_CORE\SATELLITE_CORE.csproj" />
+	</ItemGroup>
+
+</Project>

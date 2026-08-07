@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!--
+	  _ENGINE: the logic itself. Pure class library.
+	  Rule: an _ENGINE references no other Orbital project and no host framework.
+	  If it needs one, the logic belongs in a _CORE instead.
+	-->
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+</Project>

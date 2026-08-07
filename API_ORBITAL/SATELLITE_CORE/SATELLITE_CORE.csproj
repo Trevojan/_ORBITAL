@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!--
+	  _CORE: orchestration of a concept's models.
+	  Rule: a _CORE references its own _ENGINE and nothing else in Orbital.
+	-->
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+	<!-- No DI package: wiring is API_PANEL's job, not the _CORE's. -->
+	<ItemGroup>
+		<ProjectReference Include="..\SATELLITE_ENGINE\SATELLITE_ENGINE.csproj" />
+	</ItemGroup>
+
+</Project>
