@@ -1,25 +1,48 @@
 @using VIEW_ENGINE.Window
+@using VIEW_CORE.Readout
 @inject IWindowOperations Windows
+@inject IReadoutSource Readings
+@inject IReadoutOperations Readouts
 
-<div class="p-8 space-y-2">
+<div class="p-8 space-y-4">
     <h1 class="text-2xl font-bold">@Title</h1>
 
-    <p>Window state: <strong>@_state</strong></p>
-    <p>Current count: @_currentCount</p>
+    <p class="text-sm opacity-70">Window: @_windowState</p>
 
-    <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+    <div class="space-y-1">
+        <p class="font-mono">@Readouts.Describe(_readout)</p>
+        <p class="text-sm">Uplink: <strong>@_readoutState</strong></p>
+    </div>
+
+    <button class="btn btn-primary" @onclick="Refresh" disabled="@_isBusy">
+        @(_isBusy ? "Contacting…" : "Refresh from API")
+    </button>
 </div>
 
 @code
 {
-    // Read from the engine's constants rather than restated here.
+    // Constants come from the engine rather than being restated in markup.
     private const string Title = StrWindow.DefaultTitle;
 
-    private EWindowState _state = EWindowState.Unknown;
-    private int _currentCount;
+    private EWindowState _windowState = EWindowState.Unknown;
+    private EReadoutState _readoutState = EReadoutState.Empty;
+    private MReadout _readout = MReadout.Empty;
+    private bool _isBusy;
 
-    protected override void OnInitialized() =>
-        _state = Windows.StateFor(new StrBounds(StrWindow.DefaultWidth, StrWindow.DefaultHeight));
+    protected override async Task OnInitializedAsync()
+    {
+        _windowState = Windows.StateFor(new StrBounds(StrWindow.DefaultWidth, StrWindow.DefaultHeight));
 
-    private void IncrementCount() => _currentCount++;
+        await Refresh();
+    }
+
+    private async Task Refresh()
+    {
+        _isBusy = true;
+
+        _readout = await Readings.LatestAsync();
+        _readoutState = Readouts.StateOf(_readout, DateTimeOffset.UtcNow);
+
+        _isBusy = false;
+    }
 }

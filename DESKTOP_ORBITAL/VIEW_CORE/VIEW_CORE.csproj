@@ -1,33 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<!--
-	  _CORE: the host, and the orchestration of the view's models.
-	  TargetFramework comes from Directory.Build.props at the repo root.
+	  _CORE: the view's components and the orchestration of its models.
+	  No longer the executable — DESKTOP_PANEL hosts it, so this is a plain
+	  Razor class library that knows nothing about Photino or about the API.
 	-->
 	<PropertyGroup>
-		<OutputType>WinExe</OutputType>
-		<ApplicationIcon>favicon.ico</ApplicationIcon>
+		<OutputType>Library</OutputType>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<Content Update="wwwroot\**">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Update="favicon.ico">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\VIEW_ENGINE\VIEW_ENGINE.csproj" />
 	</ItemGroup>
-
-	<!-- Runs once per build. Watch mode is deliberately absent: it never returns and would hang Compile. -->
-	<Target Name="Tailwind" BeforeTargets="Compile">
-		<Exec Command="npx @tailwindcss/cli -i ./wwwroot/import.css -o ./wwwroot/output.css" />
-	</Target>
 
 </Project>

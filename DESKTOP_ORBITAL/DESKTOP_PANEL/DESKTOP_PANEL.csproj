@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<!--
+	  _PANEL: the one project in DESKTOP_ORBITAL allowed to know everything.
+	  It hosts Photino, owns the static assets, and is the only place where
+	  VIEW_CORE's contracts are joined to UPLINK_DRIVE's implementation.
+	-->
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<ApplicationIcon>favicon.ico</ApplicationIcon>
+		<RootNamespace>DESKTOP_PANEL</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Update="wwwroot\**">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="favicon.ico">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Http" Version="10.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\VIEW_CORE\VIEW_CORE.csproj" />
+		<ProjectReference Include="..\UPLINK_DRIVE\UPLINK_DRIVE.csproj" />
+	</ItemGroup>
+
+	<!-- Runs once per build. Watch mode is deliberately absent: it never returns and would hang Compile. -->
+	<Target Name="Tailwind" BeforeTargets="Compile">
+		<Exec Command="npx @tailwindcss/cli -i ./wwwroot/import.css -o ./wwwroot/output.css" />
+	</Target>
+
+</Project>
