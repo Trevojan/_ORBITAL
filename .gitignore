@@ -399,3 +399,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Agent instruction files. Kept local on purpose and pasted in after a clone —
+# they are not part of what this repository publishes.
+/CLAUDE.md
+/AGENTS.md

@@ -1,0 +1,17 @@
+<Project>
+
+	<!--
+	  Orbital: one place for every setting shared by every project.
+	  Individual .csproj files carry only what makes them different.
+	-->
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<!-- 1591 = "missing XML comment"; docs are encouraged, not enforced. -->
+		<NoWarn>$(NoWarn);1591</NoWarn>
+	</PropertyGroup>
+
+</Project>
