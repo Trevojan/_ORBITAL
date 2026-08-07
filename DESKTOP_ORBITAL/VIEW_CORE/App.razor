@@ -1,23 +1,25 @@
-<div>
-    <h1>@message!</h1>
+@using VIEW_ENGINE.Window
+@inject IWindowOperations Windows
 
-    <p>Current count: @currentCount</p>
+<div class="p-8 space-y-2">
+    <h1 class="text-2xl font-bold">@Title</h1>
+
+    <p>Window state: <strong>@_state</strong></p>
+    <p>Current count: @_currentCount</p>
 
     <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 </div>
 
 @code
 {
-    string message;
-    private int currentCount = 0;
-    
-    protected override void OnInitialized()
-    {
-        message = "Hello Photino.Blazor!";
-    }
+    // Read from the engine's constants rather than restated here.
+    private const string Title = StrWindow.DefaultTitle;
 
-    void IncrementCount(object e)
-    {
-        currentCount++;
-    }
+    private EWindowState _state = EWindowState.Unknown;
+    private int _currentCount;
+
+    protected override void OnInitialized() =>
+        _state = Windows.StateFor(new StrBounds(StrWindow.DefaultWidth, StrWindow.DefaultHeight));
+
+    private void IncrementCount() => _currentCount++;
 }
