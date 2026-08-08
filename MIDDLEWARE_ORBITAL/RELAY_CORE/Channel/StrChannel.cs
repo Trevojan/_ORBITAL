@@ -9,6 +9,3 @@ public readonly struct StrChannel
     /// <summary>Fraction of <see cref="MaxDepth"/> at which the channel counts as saturated.</summary>
     public const double SaturationRatio = 0.80;
 }
-
-/// <summary>A lesser data group: what a dispatch pass actually moved.</summary>
-public readonly record struct StrDispatchTally(int Advanced, int Delivered, int Held);

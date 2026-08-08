@@ -40,7 +40,6 @@ internal static class Program
 
         // _PANEL — the join: VIEW_CORE's contract, satisfied by UPLINK_DRIVE.
         appBuilder.Services.AddScoped<IReadoutSource, SShell>();
-        appBuilder.Services.AddSingleton<IShellOperations, SShellState>();
 
         appBuilder.RootComponents.Add<ViewApp>("app");
 

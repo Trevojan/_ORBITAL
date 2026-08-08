@@ -7,11 +7,9 @@ namespace UPLINK_DRIVE.Uplink;
 /// The HTTP client. It owns transport concerns only — status codes, timeouts, and
 /// deserialization. It holds no opinion about what an altitude means.
 /// </summary>
-public sealed class SUplink(HttpClient client) : IUplinkOperations, IUplinkTarget
+public sealed class SUplink(HttpClient client) : IUplinkOperations
 {
     private readonly HttpClient _client = client ?? throw new ArgumentNullException(nameof(client));
-
-    public Uri BaseAddress => _client.BaseAddress ?? StrUplink.DefaultBaseAddress;
 
     public Task<MUplinkResult<RTrackedSatellite>> ClassifyAsync(
         RTrackSatellite request,

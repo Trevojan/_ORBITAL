@@ -29,9 +29,6 @@ public sealed class MTrackingResult<TPayload> where TPayload : class
     public static MTrackingResult<TPayload> Rejected(string detail) =>
         new(ETrackingOutcome.Rejected, null, detail);
 
-    public static MTrackingResult<TPayload> NotTracked(string detail) =>
-        new(ETrackingOutcome.NotTracked, null, detail);
-
     /// <summary>The only way to read the result — success and failure are both forced into the open.</summary>
     public TResult Match<TResult>(Func<TPayload, TResult> onServed, Func<RTrackingProblem, TResult> onProblem)
     {

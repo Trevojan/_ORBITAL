@@ -30,20 +30,3 @@ public sealed class SShell(IUplinkOperations uplink) : IReadoutSource
             fault => MReadout.Offline($"{fault.Outcome}: {fault.Detail}"));
     }
 }
-
-/// <summary>
-/// Outcome-to-state translation, kept as its own service because it needs nothing
-/// injected. Splitting it means <see cref="SShell"/> never has to be constructed
-/// just to answer a question about an enum.
-/// </summary>
-public sealed class SShellState : IShellOperations
-{
-    public EShellState StateFor(EUplinkOutcome outcome) => outcome switch
-    {
-        EUplinkOutcome.Reached => EShellState.Online,
-        EUplinkOutcome.Refused => EShellState.Refused,
-        EUplinkOutcome.Unreachable => EShellState.Offline,
-        EUplinkOutcome.Malformed => EShellState.Offline,
-        _ => EShellState.Unknown
-    };
-}

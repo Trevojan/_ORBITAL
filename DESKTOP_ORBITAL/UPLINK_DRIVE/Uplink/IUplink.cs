@@ -1,11 +1,5 @@
 namespace UPLINK_DRIVE.Uplink;
 
-/// <summary>Anything that names a remote the desktop can call.</summary>
-public interface IUplinkTarget
-{
-    Uri BaseAddress { get; }
-}
-
 /// <summary>
 /// The outbound surface. Async, cancellable, and it never throws for a remote failure —
 /// an unreachable API is an outcome, not an exception.

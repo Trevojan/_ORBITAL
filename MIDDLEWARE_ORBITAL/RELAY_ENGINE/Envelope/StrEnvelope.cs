@@ -10,6 +10,3 @@ public readonly struct StrEnvelope
 
     public static readonly TimeSpan DeliveryDeadline = TimeSpan.FromSeconds(30);
 }
-
-/// <summary>A lesser data group: one leg of a relay journey.</summary>
-public readonly record struct StrHop(string Node, DateTimeOffset EnteredAt, EEnvelopeStage Stage);
