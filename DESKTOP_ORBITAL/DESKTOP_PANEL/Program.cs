@@ -49,14 +49,21 @@ internal static class Program
         var window = new SWindow().Normalize(MWindow.Named(StrWindow.DefaultTitle));
 
         app.MainWindow
-            .SetIconFile("favicon.ico")
+            .SetIconFile(Path.Combine(AppContext.BaseDirectory, StrShell.IconFile))
             .SetTitle(window.Title)
             .SetWidth(window.Width)
             .SetHeight(window.Height)
             .SetResizable(window.IsResizable);
 
         AppDomain.CurrentDomain.UnhandledException += (_, error) =>
+        {
+            // Written first, and to the console: a native dialog can itself fail on a
+            // machine whose webview is unavailable, and then the only record of what
+            // actually went wrong dies with the process.
+            Console.Error.WriteLine(error.ExceptionObject);
+
             app.MainWindow.ShowMessage("Fatal exception", error.ExceptionObject.ToString());
+        };
 
         app.Run();
     }
