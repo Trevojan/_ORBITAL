@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-	<!-- _PROBE: tooling comes from Directory.Build.props. -->
-	<ItemGroup>
-		<ProjectReference Include="..\VIEW_ENGINE\VIEW_ENGINE.csproj" />
-		<ProjectReference Include="..\VIEW_CORE\VIEW_CORE.csproj" />
-	</ItemGroup>
-
-</Project>

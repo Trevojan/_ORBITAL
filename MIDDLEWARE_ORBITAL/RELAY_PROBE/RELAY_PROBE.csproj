@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-	<!-- _PROBE: tooling comes from Directory.Build.props. -->
-	<ItemGroup>
-		<ProjectReference Include="..\RELAY_ENGINE\RELAY_ENGINE.csproj" />
-		<ProjectReference Include="..\RELAY_CORE\RELAY_CORE.csproj" />
-	</ItemGroup>
-
-</Project>

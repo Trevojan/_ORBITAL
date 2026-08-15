@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-	<!-- _PROBE: tooling comes from Directory.Build.props. -->
-	<ItemGroup>
-		<ProjectReference Include="..\VAULT_ENGINE\VAULT_ENGINE.csproj" />
-		<ProjectReference Include="..\VAULT_CORE\VAULT_CORE.csproj" />
-	</ItemGroup>
-
-</Project>

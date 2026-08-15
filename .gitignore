@@ -400,7 +400,15 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-# Agent instruction files. Kept local on purpose and pasted in after a clone —
-# they are not part of what this repository publishes.
+# Agent instruction files at the root. Kept local on purpose and pasted back in
+# after a clone - they are not part of what this repository publishes.
 /CLAUDE.md
 /AGENTS.md
+
+# Per-app working notes stay local. The canonical, published guideline set is
+# /Docs/.guidelines/ at the root; anything under <APP>_ORBITAL/Docs/ is someone's
+# scratch space and must never be committed.
+*_ORBITAL/Docs/
+
+# Generated stylesheet output.
+**/wwwroot/output.css
