@@ -1,66 +1,101 @@
 # _ORBITAL
 
-Orbital is a mix of DDD + Medallion pattern, Photino + Blazor and heavy SoC. The goal is multi-platform modularized user-friendly and consistent app. In resume: true organized files for ease of development.
+A template for starting software projects: a set of conventions, a derivation protocol, and a
+planning ladder that runs from a client's problem to a deliverable.
+
+The solution ships **empty**. Projects arrive when a briefing asks for them.
+
+## What this is for
+
+Starting a project usually means an improvised conversation, a folder structure invented on
+the spot, and a plan that exists mostly in somebody's head. The setup work gets redone from
+nothing every time, and the parts that were decided verbally get re-decided differently three
+weeks later.
+
+Orbital replaces that with one input and a fixed derivation. You describe the problem; the
+protocol produces the ideal, the backlog, the modules, the phases, the individual commits,
+and a gate that refuses to open execution on a plan that does not close.
+
+## Start here
+
+```bash
+git clone <this repo> <your-project>
+```
+
+Then, locally — this file is gitignored on purpose, because agent working setup is personal
+and not published content:
+
+```bash
+echo "Read \`Docs/.guidelines/AGENTS.md\` before acting." > CLAUDE.md
+```
+
+Then fill in `Docs/.guidelines/SOURCES/BRIEFING.md` with whatever you know about the problem,
+and run `Docs/.guidelines/PROTOCOL.md` from S0. The gaps in the briefing get interviewed
+before anything is derived — that is the one rule the whole scaffold rests on.
 
 ## Layout
 
-Projects are named `<CONCEPT>_<DOMAIN>` and grouped into `<APP>_ORBITAL` folders.
-
-| App | Projects | Role |
-|---|---|---|
-| `DESKTOP_ORBITAL` | `VIEW_ENGINE`, `VIEW_CORE`, `UPLINK_DRIVE`, `DESKTOP_PANEL`, `VIEW_PROBE` | Photino + Blazor desktop client |
-| `API_ORBITAL` | `SATELLITE_ENGINE`, `SATELLITE_CORE`, `SATELLITE_DRIVE`, `API_PANEL`, `SATELLITE_PROBE` | HTTP API, auth, composition root |
-| `MIDDLEWARE_ORBITAL` | `RELAY_ENGINE`, `RELAY_CORE`, `RELAY_PROBE` | Decoupled relay — carries opaque payloads |
-| `DATA_ORBITAL` | `VAULT_ENGINE`, `VAULT_CORE`, `VAULT_PROBE` | Medallion tiers: bronze → silver → gold |
-
-`_ENGINE` is pure logic. `_CORE` orchestrates its engine's models. `_DRIVE` handles endpoints
-and outbound requests. `_PANEL` — one per app — owns authentication and wiring. `_PROBE` holds
-tests and sits outside the arrow. Dependencies point inward only.
-
-`MIDDLEWARE_ORBITAL` and `DATA_ORBITAL` reference no other app; `API_PANEL` composes them.
-`UPLINK_DRIVE` calls the API without referencing it, mirroring its wire shapes by agreement.
-
-## Concepts
-
-Every concept is a folder, not a class:
-
 ```
-Satellite/
-  ISatellite.cs      interface (attributes + service contract)
-  StrSatellite.cs    constants and lesser data groups
-  ESatelliteState.cs derived states
-  MSatellite.cs      the model
-  SSatellite.cs      the business logic
+Docs/.guidelines/          the only published guideline set
+├── AGENTS.md              entry point and reading order
+├── PROTOCOL.md            the derivation algorithm, S0 to S9
+├── SOURCES/               facts    - what the system is
+├── DECISIONS/             rules    - what may and may not
+├── TEAM/                  roles    - who decides what
+└── PLAN/                  the ladder - what gets built, in what order
 ```
 
-The full convention lives in [CLAUDE.md](CLAUDE.md).
+The split is by **nature**, not by subject. An out-of-date fact is a documentation defect; an
+out-of-date rule is a process defect. They are repaired differently, so they are stored
+separately.
 
-## Build and test
+## The conventions, in brief
+
+Projects are named `<CONCEPT>_<DOMAIN>` and grouped in `<APP>_ORBITAL` folders. There are
+five domains, and the dependency arrow points inward only:
+
+```
+_PANEL  ──▶  _DRIVE  ──▶  _CORE  ──▶  _ENGINE          _PROBE sits outside
+```
+
+A concept is a folder, not a class — interface, structs, enums, records, model, services —
+and which construct each part becomes is **derived** from a five-question table rather than
+remembered.
+
+The same five-beat shape recurs at three scales, which is what lets two people decompose the
+same problem the same way:
+
+| Scale | Beats |
+|---|---|
+| Journey | root → fertilizer → trunk → branches → leaves → fruit |
+| Task | why it exists → clarification → the commit → the files → the edits → the test that proves it |
+| Method | Statement → Arguments → Dependency → Operation → Goal |
+
+Full detail: [`ARCHITECTURE.md`](Docs/.guidelines/DECISIONS/ARCHITECTURE.md).
+
+## The ladder
+
+Work is cut into **modules** (`M#`), each with the same seven **phases** (`F0`–`F6`), each
+phase holding **tasks** (`T#`). One task is one commit, always the smallest difficulty, always
+citing a norm and naming the test that proves it.
+
+Execution opens only through a gate, and the gate is a formula rather than an opinion. It is
+defined once, in [`PLANNING.md`](Docs/.guidelines/PLAN/PLANNING.md#gate-formula).
+
+## Build
+
+The solution is empty until a project is added, so this warns that it found nothing to
+restore. That is expected, and it stops with the first project.
 
 ```bash
 dotnet build _ORBITAL.slnx
 ```
 
-```bash
-dotnet test _ORBITAL.slnx
-```
+## Branches
 
-## Run
+| Branch | Purpose |
+|---|---|
+| `ORBITAL_TEMPLATE` | This — the template you clone |
+| `main` | A worked reference implementation of the same conventions |
 
-Start the API first — the desktop reports `Offline` without it.
-
-```bash
-dotnet run --project API_ORBITAL/API_PANEL --urls http://localhost:5199
-```
-
-```bash
-dotnet run --project DESKTOP_ORBITAL/DESKTOP_PANEL
-```
-
-Routes sit behind an `X-Orbital-Key` header. Scopes (`Read`, `Write`, `Operator`) are
-configured under `Access:Keys` — use user-secrets for anything real. The desktop reads its
-key from the `ORBITAL_KEY` environment variable.
-
-```bash
-curl -H "X-Orbital-Key: replace-me-local-only" http://localhost:5199/api/health
-```
+They diverge on purpose and are not merged.

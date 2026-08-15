@@ -1,8 +1,8 @@
 <Project>
 
 	<!--
-	  Orbital: one place for every setting shared by every project.
-	  Individual .csproj files carry only what makes them different.
+	  One place for every setting shared by every project (AR22).
+	  A .csproj carries only what makes it different.
 	-->
 	<PropertyGroup>
 		<TargetFramework>net10.0</TargetFramework>
@@ -10,14 +10,22 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<!-- 1591 = "missing XML comment"; docs are encouraged, not enforced. -->
+		<!-- 1591 = "missing XML comment"; documentation is encouraged, not enforced. -->
 		<NoWarn>$(NoWarn);1591</NoWarn>
 	</PropertyGroup>
 
 	<!--
-	  Every _PROBE is a test project and they are all identical in their tooling,
-	  so the tooling is declared once here. A _PROBE.csproj carries only the
-	  ProjectReference naming what it probes.
+	  The version SemVer applies to. Keep it in step with SOURCES/CHANGELOG.md.
+	  0.x is honest for a system whose shape is still moving.
+	-->
+	<PropertyGroup>
+		<Version>0.1.0</Version>
+	</PropertyGroup>
+
+	<!--
+	  Every _PROBE is a test project and they are identical in their tooling, so the
+	  tooling is declared once, here (AR25). A _PROBE.csproj carries only the
+	  ProjectReference naming what it examines.
 	-->
 	<PropertyGroup Condition="$(MSBuildProjectName.EndsWith('_PROBE'))">
 		<IsPackable>false</IsPackable>
