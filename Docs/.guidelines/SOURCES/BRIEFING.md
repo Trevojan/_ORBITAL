@@ -50,12 +50,20 @@ Who touches this, and what each one is allowed to do. Distinguish two axes that 
 confused: **what someone is** (their relationship to the organization) and **what someone
 may do** (their permissions). They are rarely derivable from each other.
 
+Also separate **who asked for this** from **who suffers the problem**. They are frequently
+different people, and when they are, the second one is the user. Building for the requester
+is the quietest way to deliver something nobody uses.
+
 >
 
 ## 3. How it is solved today
 
 The thing being replaced — a spreadsheet, a process, a person's memory, nothing at all.
 Include the parts that **work**, because those are the ones people will miss.
+
+Then say whether the current way is **replaced or supplemented**. A fallback that survives
+alongside the new system is scope: it has to keep working, and something has to reconcile
+the two.
 
 >
 
@@ -65,6 +73,10 @@ The observable outcome that ends the problem in field 1. This becomes the MVP's 
 line, so it **MUST** be checkable by someone other than its author.
 
 *Shape of a good answer:* `<actor> can <do the thing> without <the old workaround>.`
+
+**And how would you check it?** Name the observation that settles it — a number, a duration,
+a thing someone stops doing. Without this, the finish line is an adjective, and an adjective
+is argued about rather than reached.
 
 >
 
@@ -80,6 +92,15 @@ often decides it.
 Stack, deadline, budget, regulation, systems already in place, hosting that is already paid
 for, languages the team actually knows. Anything that is not negotiable and not chosen by
 us.
+
+Two constraints that are almost never volunteered and change the architecture more than the
+rest of this field combined — ask both explicitly:
+
+- **Availability.** Must it work when the network, the server or the power is down? "It has
+  to work in the basement" and "it can assume a connection" are different products, and the
+  difference is not retrofittable.
+- **Data lifespan.** How long must records be kept, and what happens to them afterwards —
+  deleted, archived, anonymised? This decides whether history is a feature or a liability.
 
 >
 
