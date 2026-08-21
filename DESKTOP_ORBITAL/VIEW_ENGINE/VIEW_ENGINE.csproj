@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!--
+	  _ENGINE: this project's own view logic.
+	  Photino is now a dependency, not a fork — upstream fixes arrive with a version bump
+	  instead of a manual merge, and everything in this folder is genuinely ours.
+	-->
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Photino.Blazor" Version="4.0.13" />
+	</ItemGroup>
+
+</Project>

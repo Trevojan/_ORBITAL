@@ -405,10 +405,15 @@ FodyWeavers.xsd
 /CLAUDE.md
 /AGENTS.md
 
-# Per-app working notes stay local. The canonical, published guideline set is
-# /Docs/.guidelines/ at the root; anything under <APP>_ORBITAL/Docs/ is someone's
-# scratch space and must never be committed.
-*_ORBITAL/Docs/
+# .scope holds client material: briefs, contracts, exports, handovers - anything
+# that belongs to the engagement rather than to the template. It is the one place
+# in this repository that is never published, at any depth.
+#
+# .guidelines is deliberately NOT ignored. The conventions, the roles and the
+# planning machinery are published on purpose: they are a template, and a template
+# that hides its own rules teaches nothing.
+**/Docs/.scope/
+**/.scope/
 
 # Generated stylesheet output.
 **/wwwroot/output.css

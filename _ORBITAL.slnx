@@ -1,14 +1,29 @@
 <Solution>
-
-  <!--
-    Empty on purpose.
-
-    Projects are named <CONCEPT>_<DOMAIN> and grouped in one folder per app.
-    They are PLANNED by PROTOCOL step S2 and CREATED only after explicit
-    confirmation, as a task inside M1.F1 - never before.
-
-    See Docs/.guidelines/DECISIONS/ARCHITECTURE.md for the naming convention
-    and Docs/.guidelines/PROTOCOL.md for the order in which they arrive.
-  -->
-
+  <Folder Name="/API/">
+    <Project Path="API_ORBITAL/SATELLITE_ENGINE/SATELLITE_ENGINE.csproj" />
+    <Project Path="API_ORBITAL/SATELLITE_CORE/SATELLITE_CORE.csproj" />
+    <Project Path="API_ORBITAL/SATELLITE_DRIVE/SATELLITE_DRIVE.csproj" />
+    <Project Path="API_ORBITAL/API_PANEL/API_PANEL.csproj" />
+    <Project Path="API_ORBITAL/SATELLITE_PROBE/SATELLITE_PROBE.csproj" />
+  </Folder>
+  <Folder Name="/DATA/">
+    <Project Path="DATA_ORBITAL/VAULT_ENGINE/VAULT_ENGINE.csproj" />
+    <Project Path="DATA_ORBITAL/VAULT_CORE/VAULT_CORE.csproj" />
+    <Project Path="DATA_ORBITAL/VAULT_PROBE/VAULT_PROBE.csproj" />
+  </Folder>
+  <Folder Name="/DESKTOP/">
+    <Project Path="DESKTOP_ORBITAL/VIEW_ENGINE/VIEW_ENGINE.csproj" />
+    <Project Path="DESKTOP_ORBITAL/VIEW_CORE/VIEW_CORE.csproj" />
+    <Project Path="DESKTOP_ORBITAL/UPLINK_DRIVE/UPLINK_DRIVE.csproj" />
+    <Project Path="DESKTOP_ORBITAL/DESKTOP_PANEL/DESKTOP_PANEL.csproj" />
+    <Project Path="DESKTOP_ORBITAL/VIEW_PROBE/VIEW_PROBE.csproj" />
+  </Folder>
+  <Folder Name="/DESKTOP/Docs/" />
+  <Folder Name="/DESKTOP/Docs/.guidelines/" />
+  <Folder Name="/DESKTOP/Docs/.scope/" />
+  <Folder Name="/MIDDLEWARE/">
+    <Project Path="MIDDLEWARE_ORBITAL/RELAY_ENGINE/RELAY_ENGINE.csproj" />
+    <Project Path="MIDDLEWARE_ORBITAL/RELAY_CORE/RELAY_CORE.csproj" />
+    <Project Path="MIDDLEWARE_ORBITAL/RELAY_PROBE/RELAY_PROBE.csproj" />
+  </Folder>
 </Solution>

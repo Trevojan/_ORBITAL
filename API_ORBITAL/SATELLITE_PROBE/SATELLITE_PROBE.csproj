@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!--
+	  _PROBE: tests. Test tooling comes from Directory.Build.props, so this file
+	  says only what this probe examines.
+	  A _PROBE sits outside the dependency arrow: it may reference whatever it tests.
+	-->
+	<ItemGroup>
+		<ProjectReference Include="..\SATELLITE_ENGINE\SATELLITE_ENGINE.csproj" />
+		<ProjectReference Include="..\SATELLITE_CORE\SATELLITE_CORE.csproj" />
+	</ItemGroup>
+
+</Project>

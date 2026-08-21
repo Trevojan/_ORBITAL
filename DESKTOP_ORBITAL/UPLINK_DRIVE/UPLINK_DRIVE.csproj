@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!--
+	  _DRIVE: outbound requests, once they outgrow the _CORE.
+	  It references no other Orbital project — not even API_ORBITAL, whose shapes it
+	  mirrors. Restating the contract is what keeps the desktop free to ship
+	  independently of the API.
+	  A _DRIVE that only adapts an external contract has no _CORE of its own.
+	-->
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+</Project>

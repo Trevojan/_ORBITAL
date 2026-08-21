@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* The components live in VIEW_CORE, so Tailwind is told to scan there for classes. */
+@source "../../VIEW_CORE";
