@@ -1,9 +1,18 @@
 # _ORBITAL
 
-A template for starting software projects: a set of conventions, a derivation protocol, and a
-planning ladder that runs from a client's problem to a deliverable.
+A template for starting software projects: a set of conventions, a derivation protocol, a
+planning ladder that runs from a client's problem to a deliverable, and four working app
+templates to start from.
 
-The solution ships **empty**. Projects arrive when a briefing asks for them.
+| App | Projects | What it is |
+|---|---|---|
+| `DESKTOP_ORBITAL` | 5 | Native desktop window hosting a web UI, with a typed client to an API |
+| `API_ORBITAL` | 5 | HTTP API with authentication and a composition root |
+| `MIDDLEWARE_ORBITAL` | 3 | A relay that carries opaque payloads and references no other app |
+| `DATA_ORBITAL` | 3 | A refinement pipeline over tiered records |
+
+Sixteen projects, 89 tests, building clean. They are a **starting point, not a demo**: clone,
+rename the concepts to your domain, delete what you do not need.
 
 ## What this is for
 

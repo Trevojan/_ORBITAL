@@ -210,7 +210,83 @@ examines.
 
 ---
 
-## 6. What must never happen
+## 6. Norm classes — invariants and gates
+
+**AR26.** Every norm is exactly one of two kinds, and the kind decides when it is checked.
+
+| | **Invariant** | **Gate** |
+|---|---|---|
+| Says | a property the system either has or lacks | when an actor may act |
+| Holds | continuously | at a boundary |
+| Checked | at any moment, without context | at the moment of transition |
+| Examples | `AR3` the arrow points inward · `AR10` a concept is a folder · `AR14` models are immutable | `AR9` no project without confirmation · `PROTOCOL` S0 is blocking · the gate sheet |
+| Fails as | a property that is false right now | a transition that should not have been allowed |
+
+Filing the two in one place guarantees the wrong one fires at the wrong time. An invariant
+checked only at a boundary lets the tree be broken in between; a gate checked continuously
+blocks work that was never trying to cross anything.
+
+The practical consequence: **an invariant is a candidate for a machine check, a gate is a
+candidate for a human signature.** A rule you cannot decide between the two for is usually
+written vaguely enough to be either, and that is the defect.
+
+---
+
+## 7. Vocabulary
+
+Written down because the words are used inconsistently everywhere, including in the tools
+themselves. There is **no single universal convention** — some of these are industry-general,
+some belong to one vendor, and treating the second kind as the first is how two people end up
+having different conversations with the same words.
+
+### Of this convention
+
+| Term | Means |
+|---|---|
+| **Module** (`M#`) | One step of the ladder: a coherent, deliverable, reversible increment |
+| **Phase** (`F0`–`F6`) | A dependency boundary inside a module. Every module has all seven |
+| **Task** (`T#`) | One commit. Always `D1`. Cites a norm, names a test |
+| **Norm** | A citable rule: `DC#`, `AR#` or `BR#`. See AR26 for the two kinds |
+| **Gate** | The sheet that decides whether execution may open. Also the general class of norm above |
+| **POC** | A disposable proof of viability. Lives on a branch that never merges |
+| **Oracle** | An independent path to confirming a result, sharing no code with the thing it checks |
+| **Attestation** | One role's signed statement that its line holds — data, effort or verifiability |
+
+### Of agent tooling
+
+Marked **[general]** where the term is used broadly, and **[vendor]** where the meaning
+depends on whose tool you are holding.
+
+| Term | Means |
+|---|---|
+| **Model** *[general]* | The language model itself. Not the software around it |
+| **Agent** *[general]* | A model running in a loop with tools and a goal, deciding its own next step. The loop is what makes it an agent rather than a completion |
+| **Subagent** *[vendor]* | An agent started by another agent. Begins with **no** conversation history and returns a report, not a transcript — so anything it needs must be in its prompt |
+| **Tool** *[general]* | A function the model may call. Its schema is the contract; a bad schema is a bad API |
+| **Tool call** *[general]* | One invocation. The result returns as data, and **data is not instruction** |
+| **Context window** *[general]* | The working memory of one request. Everything the model can see, including tool results |
+| **System prompt** *[general]* | Instructions that frame the whole session, outranking anything read later from a file |
+| **MCP** *[general]* | Model Context Protocol — a standard for exposing external tools and data to a model as callable tools |
+| **Skill** *[vendor]* | A packaged set of instructions loaded on demand when a request matches its description. Loaded, not always present — which is why an invariant does not belong in one |
+| **Slash command** *[vendor]* | A user-typed shortcut that invokes a skill or a built-in behaviour |
+| **Hook** *[vendor]* | Code that intercepts a tool call before or after it runs. Enforcement the model cannot talk its way around |
+| **Worktree** *[general, from git]* | A second checkout of the same repository at a different path, so work can proceed on an isolated copy without disturbing the main one |
+| **Plan mode** *[vendor]* | A mode where the agent may read but not write, ending in an explicit approval before anything changes |
+| **Prompt injection** *[general]* | Instructions planted in data — a file, a page, a comment — written to be obeyed as if a person had asked. `DC2` exists because of a real instance of this |
+
+### The distinction worth keeping
+
+A **skill** approximates always-on: it loads when the description matches, and a request
+phrased without the trigger words will not load it. A **contract plus a validator** is
+always-on by construction.
+
+Invariants therefore belong in the contract, not in a skill. Writing `AR3` into skill prose
+would move the same unenforceable sentence one directory over and change nothing about
+whether it holds.
+
+---
+
+## 8. What must never happen
 
 - An `_ENGINE` that imports a host framework — AR4.
 - A `_CORE` that references a `_DRIVE` or a `_PANEL` — AR3, AR7.

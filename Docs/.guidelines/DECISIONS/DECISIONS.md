@@ -52,18 +52,47 @@ points at canonical documents which do not exist anywhere. An agent reading it f
 pointers, finds nothing, and improvises — while appearing to be well-informed. This defect
 was found in this repository's own history and is what motivated the rule.
 
-**Decision.** `Docs/.guidelines/` at the repository root is the only published guideline set.
-Per-app `<APP>_ORBITAL/Docs/` folders are personal scratch space, are gitignored, and are
-never published. Every path referenced from a guideline document **MUST** resolve inside this
-repository.
+**Decision.** `Docs/.guidelines/` at the repository root is the only guideline set. Every path
+referenced from a guideline document **MUST** resolve inside this repository.
 
 **Consequences.**
 
 - Duplication cannot drift, because there is nothing to duplicate.
 - A broken reference becomes a reportable defect rather than an invitation to improvise.
-- Personal working notes stay personal, which is why the ignore rule lives in the root
-  `.gitignore` and not in a file that disappears with the app it sits in.
 
 ---
 
-*(new decisions start at `DC3`)*
+## DC3 — `.guidelines` is published, `.scope` is not
+
+`accepted`
+
+**Context.** A template that hides its own rules teaches nothing: the conventions, the roles
+and the planning machinery are the product, and a reader who cannot see them has been handed
+a folder structure and told to guess. But the same repository, once cloned, accumulates
+material that belongs to whoever commissioned the work — briefs, contracts, exports,
+handovers. Those two kinds of document have opposite defaults and were previously governed by
+one rule, which meant one of them was always wrong.
+
+**Decision.** The split is by **ownership, not by secrecy**:
+
+| Folder | Holds | Published |
+|---|---|---|
+| `Docs/.guidelines/` | conventions, roles, planning machinery — the template | **yes** |
+| `**/.scope/` | briefs, contracts, exports, handovers — the engagement | **never** |
+
+The ignore rule matches `.scope` at **any depth**, so it cannot be defeated by moving a
+folder, and it lives in the root `.gitignore` rather than in a per-app file that disappears
+along with the app it sits in.
+
+**Consequences.**
+
+- The template is readable by anyone, which is the point of publishing it.
+- Client material has exactly one home, and that home is never a judgement call.
+- A clone that becomes a real project keeps its own history in its own repository; the
+  template does not follow it there.
+- Anything placed outside `.scope` is published by default. That default is deliberate — the
+  alternative, hiding by default, is how a template stops being one.
+
+---
+
+*(new decisions start at `DC4`)*
