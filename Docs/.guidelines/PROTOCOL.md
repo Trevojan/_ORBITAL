@@ -196,6 +196,26 @@ What is written now: the path of each file, the name and signature of each funct
 norm that governs it, the name of the test that proves it, and the commit subject. What is
 **not** written now: the body of the functions. Blueprint, not wall.
 
+#### The task lifecycle
+
+The seven conditions above say what a task must **be**. This says what a person **does**
+while working one. Six steps, with a check between each pair — the check is what decides
+whether the next step may start.
+
+| | Step | Check before the next step |
+|---|---|---|
+| **A** | Open the task | Its architecture is on the checklist |
+| **B** | Define it as a tree: problem, effort, resources, actions, goal | **Do the resources prove a solid problem?** If the resources are large and the problem is vague, the task is a solution looking for a justification |
+| **C** | Fertilize — connect the task to its phase and its module's objective | **Does it belong as `[late]`?** A task that turns out to be non-functional leaves the ladder here, not after it is built |
+| **D** | Do the work | Its architecture is still on the checklist |
+| **E** | Normalize and categorize what is in flight | Its architecture is still on the checklist |
+| **F** | Conclude and categorize the task | The commit stands alone and the named test is green |
+
+Step **B** is the tree at task scale, and step **C** is the fertilizer returning to the root
+one level down. The check after **B** is the one that catches the most waste: it is asked
+before the work, and it is the last cheap moment to discover that the problem was never
+stated.
+
 > Where the blueprint is necessarily less firm, it **MUST** say so rather than fake
 > precision — the uncertainty is recorded as a POC in that module, with the question it
 > answers.

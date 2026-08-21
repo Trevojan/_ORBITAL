@@ -190,6 +190,14 @@ with nothing in it **MUST** declare itself empty; it is never omitted.
 Reordering two phases breaks the system — F3 before F2 puts a rule in the exposure layer,
 which AR17 forbids. Reordering two tasks inside one phase breaks nothing.
 
+**AR27.** A phase **MUST NOT** be reviewed without referencing its module's objective. A
+phase judged on its own reads as complete whenever its tasks are done, which is a different
+question from whether it moved the module toward what the module is for. The second question
+is the one worth asking, and it cannot be asked from inside the phase.
+
+> Norm ids are allocated in order of creation, not position. `AR27` sits here because this is
+> where it belongs to a reader; the number only has to be unique and stable.
+
 ---
 
 ## 5. Conventions
