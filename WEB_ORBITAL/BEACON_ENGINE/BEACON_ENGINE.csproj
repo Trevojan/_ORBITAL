@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!--
+	  _ENGINE: the logic itself. Pure class library (AR4).
+	  It references nothing in the solution and no host framework, which is what
+	  lets BEACON_PROBE check every layout rule with no browser attached.
+	-->
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+</Project>

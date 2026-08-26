@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+	<!--
+	  _PANEL: the one project in WEB_ORBITAL allowed to know everything (AR8).
+	  It hosts the browser runtime, owns the static assets, performs the only JavaScript
+	  interop in the app, and is the single place where BEACON_CORE's contracts are joined
+	  to BEACON_DRIVE's implementation.
+	-->
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>WEB_PANEL</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.11" PrivateAssets="all" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BEACON_CORE\BEACON_CORE.csproj" />
+		<ProjectReference Include="..\BEACON_DRIVE\BEACON_DRIVE.csproj" />
+		<ProjectReference Include="..\BEACON_ENGINE\BEACON_ENGINE.csproj" />
+	</ItemGroup>
+
+</Project>

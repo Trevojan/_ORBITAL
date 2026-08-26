@@ -7,12 +7,18 @@ templates to start from.
 | App | Projects | What it is |
 |---|---|---|
 | `DESKTOP_ORBITAL` | 5 | Native desktop window hosting a web UI, with a typed client to an API |
+| `WEB_ORBITAL` | 5 | Browser app that measures a viewport it does not control |
 | `API_ORBITAL` | 5 | HTTP API with authentication and a composition root |
 | `MIDDLEWARE_ORBITAL` | 3 | A relay that carries opaque payloads and references no other app |
 | `DATA_ORBITAL` | 3 | A refinement pipeline over tiered records |
 
-Sixteen projects, 89 tests, building clean. They are a **starting point, not a demo**: clone,
-rename the concepts to your domain, delete what you do not need.
+Twenty-one projects, 124 tests, building clean. They are a **starting point, not a demo**:
+clone, rename the concepts to your domain, delete what you do not need.
+
+Each app is **independently deletable**. No app references another, so removing three of them
+leaves the fourth working. That costs some duplication — `UPLINK_DRIVE` and `BEACON_DRIVE`
+are near-identical — and it is the right trade, because the unit anyone reuses here is a
+whole app, not a class.
 
 ## What this is for
 

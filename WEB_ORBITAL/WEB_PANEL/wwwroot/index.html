@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ORBITAL — Beacon</title>
+    <base href="/" />
+    <link rel="stylesheet" href="app.css" />
+</head>
+
+<body>
+    <div id="app">
+        <p style="font-family: system-ui; padding: 2rem;">Loading…</p>
+    </div>
+
+    <div id="blazor-error-ui">
+        Something went wrong.
+        <a href="" class="reload">Reload</a>
+    </div>
+
+    <script>
+        // The only interop the application exposes. Named in WEB_PANEL/Shell/StrShell.cs;
+        // if you rename it, rename it there, because that constant is the contract.
+        window.orbitalViewportWidth = () => window.innerWidth;
+    </script>
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+
+</html>

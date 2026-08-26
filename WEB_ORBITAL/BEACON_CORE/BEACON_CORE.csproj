@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<!--
+	  _CORE: the page's components and the orchestration of its models.
+	  It references its own _ENGINE and nothing else (AR5). No browser, no HTTP client,
+	  no host - which is why the same components could be mounted by a different panel.
+	-->
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.11" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BEACON_ENGINE\BEACON_ENGINE.csproj" />
+	</ItemGroup>
+
+</Project>

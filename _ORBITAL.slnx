@@ -18,12 +18,16 @@
     <Project Path="DESKTOP_ORBITAL/DESKTOP_PANEL/DESKTOP_PANEL.csproj" />
     <Project Path="DESKTOP_ORBITAL/VIEW_PROBE/VIEW_PROBE.csproj" />
   </Folder>
-  <Folder Name="/DESKTOP/Docs/" />
-  <Folder Name="/DESKTOP/Docs/.guidelines/" />
-  <Folder Name="/DESKTOP/Docs/.scope/" />
   <Folder Name="/MIDDLEWARE/">
     <Project Path="MIDDLEWARE_ORBITAL/RELAY_ENGINE/RELAY_ENGINE.csproj" />
     <Project Path="MIDDLEWARE_ORBITAL/RELAY_CORE/RELAY_CORE.csproj" />
     <Project Path="MIDDLEWARE_ORBITAL/RELAY_PROBE/RELAY_PROBE.csproj" />
+  </Folder>
+  <Folder Name="/WEB/">
+    <Project Path="WEB_ORBITAL/BEACON_ENGINE/BEACON_ENGINE.csproj" />
+    <Project Path="WEB_ORBITAL/BEACON_CORE/BEACON_CORE.csproj" />
+    <Project Path="WEB_ORBITAL/BEACON_DRIVE/BEACON_DRIVE.csproj" />
+    <Project Path="WEB_ORBITAL/WEB_PANEL/WEB_PANEL.csproj" />
+    <Project Path="WEB_ORBITAL/BEACON_PROBE/BEACON_PROBE.csproj" />
   </Folder>
 </Solution>

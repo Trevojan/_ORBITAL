@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!--
+	  _DRIVE: outbound requests (AR6).
+	  It references no other Orbital project - not even the API whose shapes it mirrors.
+	  Restating the contract by agreement is what lets the web app ship on its own schedule.
+
+	  This is deliberately near-identical to DESKTOP_ORBITAL/UPLINK_DRIVE. The duplication
+	  is the price of each app being independently deletable; the unit of reuse in this
+	  template is a whole app, not a class.
+	-->
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+</Project>

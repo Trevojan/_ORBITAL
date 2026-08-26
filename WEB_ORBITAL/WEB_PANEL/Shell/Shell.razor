@@ -1,0 +1,42 @@
+@inject IJSRuntime Js
+
+@if (_measured)
+{
+    <App WidthPx="_widthPx" />
+}
+else
+{
+    <p class="muted">Measuring…</p>
+}
+
+@code
+{
+    private int _widthPx = StrViewport.MinUsableWidthPx;
+    private bool _measured;
+
+    /// <summary>
+    /// The only JavaScript interop in the application. It lives here because the browser is
+    /// the panel's business: BEACON_CORE receives a number as a parameter and never learns
+    /// where it came from, which is what lets every layout rule be proven without a page.
+    /// </summary>
+    protected override async Task OnInitializedAsync()
+    {
+        _widthPx = await MeasureAsync();
+        _measured = true;
+    }
+
+    private async Task<int> MeasureAsync()
+    {
+        try
+        {
+            return await Js.InvokeAsync<int>(StrShell.MeasureFunction);
+        }
+        catch (JSException)
+        {
+            // The script is missing or the host is not a browser. The narrowest usable
+            // width is the honest fallback: it renders, and it renders wrong in the
+            // direction that stays readable.
+            return StrViewport.MinUsableWidthPx;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- _PROBE: tooling comes from Directory.Build.props (AR25). -->
+	<ItemGroup>
+		<ProjectReference Include="..\BEACON_ENGINE\BEACON_ENGINE.csproj" />
+		<ProjectReference Include="..\BEACON_CORE\BEACON_CORE.csproj" />
+	</ItemGroup>
+
+</Project>
