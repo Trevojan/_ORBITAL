@@ -1,0 +1,28 @@
+{
+  "_about": "Work ledger: the first peek on returning to this repository. It points and never copies. Detail lives in PLAN/ROADMAP.md.",
+  "schema": 1,
+  "updated": "2026-10-13",
+  "items": [
+    { "id": "R0-ORPHANS", "title": "11 uncommitted files and 3 unread flow sources have no owner",
+      "state": "blocked", "who": "agent",
+      "blocked_by": "Regent: which item owns them (D9)",
+      "where": ["Docs/.guidelines/PLAN/PHASES.md", "Docs/.guidelines/flow.pgml"],
+      "source": "Docs/.guidelines/PLAN/ROADMAP.md#2-decisions-the-regent-owes-r0" },
+    { "id": "R0-BRANCH", "title": "Branch of record: main or ORBITAL_TEMPLATE",
+      "state": "blocked", "who": "agent",
+      "blocked_by": "Regent: D1; ff90abd is unpushed",
+      "source": "Docs/.guidelines/PLAN/ROADMAP.md#2-decisions-the-regent-owes-r0" },
+    { "id": "R1", "title": "Migrate Classic layout to Dotted",
+      "state": "backlog", "source": "Docs/.guidelines/PLAN/ROADMAP.md#r1--migrate-to-the-dotted-layout" },
+    { "id": "R2", "title": "Promote code conventions to anchored AR norms",
+      "state": "backlog", "source": "Docs/.guidelines/PLAN/ROADMAP.md#r2--promote-the-code-conventions-to-norms-born-anchored" },
+    { "id": "R3", "title": "Apply Glyph's current specs",
+      "state": "backlog", "source": "Docs/.guidelines/PLAN/ROADMAP.md#r3--apply-glyphs-current-specs" },
+    { "id": "R4", "title": "Lineage manifest and ledger gates",
+      "state": "backlog", "source": "Docs/.guidelines/PLAN/ROADMAP.md#r4--lineage-and-ledger" },
+    { "id": "R5", "title": "Orders, shortcuts, sources, history",
+      "state": "backlog", "source": "Docs/.guidelines/PLAN/ROADMAP.md#r5--operating-machinery" },
+    { "id": "R6", "title": "Template expansion candidates, AR9 applies",
+      "state": "backlog", "source": "Docs/.guidelines/PLAN/ROADMAP.md#r6--template-expansion-regent-ar9" }
+  ]
+}
