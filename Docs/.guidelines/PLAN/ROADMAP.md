@@ -51,6 +51,16 @@ documentation encouraged, `0.1.0`, no vendoring, `_PROBE` tooling, no `src/`) ar
 | D8 | Class of each new norm (`AR26`) | inheritance and names: invariant (machine-checkable); the rest as stated per task | R2 |
 | D9 | Orphan work | which item owns the 11 files; whether `min_max_ladder.zip`, `inspection.pgml`, `production_level_flow.xml` are sources, history or discards | R1 |
 
+### Answered
+
+The answer in force is the newest; each one replaces the recommendation in its row above.
+
+| | Answer | Date |
+|---|---|---|
+| D1 | `main` is the branch of record: every branch converges to it, and it is kept as the template. `main` was fast-forwarded to `ORBITAL_TEMPLATE` (`ff90abd`); `DESKTOP_ORBITAL` was already inside it | 2026-11-07 |
+| D7 | Prose only. The lifecycle A–F lives in `PROTOCOL.md` and `AR27` in `ARCHITECTURE.md`; the `flow.*` encodings were discarded, so R3.T02–T03 and the `flow.pgml` row of R4 fall away | 2026-11-07 |
+| D9 | Increments, committed: `PLAN/PHASES.md` (with `PLAN/min_max_ladder.svg`, unzipped), `TEAM/ORCHESTRATION.md`, this roadmap and the ledger. Discarded: `flow.pgml`, `flow.hgml`, `flow.min.hgml`, `flow.xml`, `inspection.pgml`, `production_level_flow.xml`, `SOURCES/WORKFLOW.txt` | 2026-11-07 |
+
 ## 3. Modules
 
 Each task is one commit, cites a norm, names its proof (`AR20`).

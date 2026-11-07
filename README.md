@@ -108,9 +108,4 @@ dotnet build _ORBITAL.slnx
 
 ## Branches
 
-| Branch | Purpose |
-|---|---|
-| `ORBITAL_TEMPLATE` | This — the template you clone |
-| `main` | A worked reference implementation of the same conventions |
-
-They diverge on purpose and are not merged.
+`main` is the template you clone. Every other branch converges to it.
