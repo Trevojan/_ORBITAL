@@ -1,6 +1,7 @@
 # CHECKLIST — what has been done
 
-**Derived, never authored.** Every line here comes from a task in a `LADDER_PLAN_M_X.md`.
+**Derived, never authored.** Every line here comes from a task in a module's ladder
+(`BLUEPRINT_M_##.md`, `LADDER_PLAN_M_##.md` once signed).
 A line with no originating task is a process defect, not a shortcut.
 
 This file exists separately from the ladder for one reason: **the ladder is what was
@@ -18,8 +19,8 @@ Declared and reproducible, so two people regenerate the same list:
 ## Format
 
 ```markdown
-- [ ] `M1.F0.T01` — write the norm that governs <thing>          D1
-- [x] `M1.F1.T02` — declare the <Concept> contract                D1
+- [ ] `M01.D01.T01` — write the norm that governs <thing>        [F0]      D1
+- [x] `M01.D01.T02` — declare the <Concept> contract              [F1–F2]   D1
 ```
 
 Milestones are marked on their own line and name what is true once reached — and, just as

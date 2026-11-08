@@ -43,6 +43,7 @@ fact in two places is a fact one of whose copies is wrong.
 | **Prose states the present, never the correction** | text that said "this is A" **becomes** "this is B"; it does not gain a "no longer A". Accumulated micro-corrections are residue the reader infers and throws away, because they do not help the final state. Where retirement has to act, it acts on the mechanism, not on the prose. The decision register is the one exception, and it marks a superseded row instead of rewriting it (`ADR-009`) |
 | **Nothing disappears in silence** | what vanishes without a refusal is a defect, not a saving |
 | **A diagnostic names the cause** | not the repair. A more detailed message does not help; position and structure do |
+| **English, with European spelling** | `ADR-015`. The template and what it seeds are written in English, spelt the European way — *behaviour*, *authorisation*, *colour*. A project whose prose is in another language keeps its technical terms in English |
 
 ## Of the process
 

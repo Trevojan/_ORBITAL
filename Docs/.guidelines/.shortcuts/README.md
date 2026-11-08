@@ -18,9 +18,9 @@
 | | |
 |---|---|
 | suite | `dotnet build _ORBITAL.slnx` — green, 21 projects; tests run app by app, below |
-| version | **0.1.0.01** — the rule is in [`.changelog/`](../.changelog/README.md) |
-| last milestone | the guidelines on the Dotted layout, with the decision register, the constraints and the four-digit version (2026-11-07, [roadmap](../.plan/ROADMAP.md) module 1) |
-| next | roadmap module 2: the ladder restated as `M##.D##.T##` (`ADR-008`), and the conventions promoted to norms |
+| version | **1.2.0.02** — the rule is in [`.changelog/`](../.changelog/README.md) |
+| last milestone | the ladder restated as `M##.D##.T##` with the phases inside every task, and `AR28`, `AR29`, `AR31` born (2026-11-07, [roadmap](../.plan/ROADMAP.md) module 2) |
+| next | roadmap module 3, the gates as `_PROBE` tests; `AR30` waits for the Regent ([`.plan/`](../.plan/README.md)) |
 
 ## What this is
 
@@ -36,7 +36,7 @@ design anything before the briefing is complete — that is the one rule the who
 2. [`BRIEFING.md`](../.sources/BRIEFING.md) — the problem everything descends from
 3. [`GRAND_PLAN.md`](../.plan/GRAND_PLAN.md) — the ceiling of coherence
 4. [`MINIMUM_PLAN.md`](../.plan/MINIMUM_PLAN.md) — the path to the MVP
-5. `.plan/LADDER_PLAN_M_<current>.md` — the module in flight
+5. `.plan/BLUEPRINT_M_<##>.md`, or `LADDER_PLAN_M_<##>.md` once signed — the module in flight
 6. [`BUSINESS_RULES.md`](../.decisions/BUSINESS_RULES.md) — the `BR#` norms
 7. [`.decisions/`](../.decisions/README.md) — the `ADR-###` register; **never contradict an accepted
    one without writing the one that supersedes it**
@@ -108,16 +108,18 @@ never published (`ADR-003`).
 | `ADR-###` | decision — architecture, limits, duties | [`.decisions/README.md`](../.decisions/README.md) |
 | `AR<n>` | architecture rule | [`ARCHITECTURE.md`](../.decisions/ARCHITECTURE.md) |
 | `BR<n>` | business rule | [`BUSINESS_RULES.md`](../.decisions/BUSINESS_RULES.md) |
-| `D1`–`D3` | difficulty — Simple, Dense, Very dense | a scale, not a register |
 | `B<n>` | backlog item | [`BACKLOG.md`](../.plan/BACKLOG.md) |
-| `M<n>` | module — one step of the ladder | `.plan/LADDER_PLAN_M_<n>.md` |
-| `F0`–`F6` | phase — fixed, in every module | inside a module |
-| `T<nn>` | task — one commit | inside a phase |
+| `M##` | module — a feature, with its own business rules | `.plan/BLUEPRINT_M_##.md`, `LADDER_PLAN_M_##.md` once signed |
+| `D##` | step (*degrau*) — the dependency boundary | inside a module |
+| `T##` | task — one commit, the reversibility boundary | inside a step |
+| `F0`–`F6` | phase — the protocol inside every task | inside a task |
+| `D1`–`D3` | difficulty — Simple, Dense, Very dense | a scale, not a register; written beside a task |
 | `ORD-####` | Order | [`.orders/`](../.orders/README.md) |
 
 A **norm** is any `ADR-###`, `AR<n>` or `BR<n>`, and every task cites one. A fully qualified task
-looks like **`M2.F3.T04`** and appears in the checklist, the trace and the commit subject. `ADR-008`
-replaces this grammar with `M##.D##.T##`; the ladder documents move to it in roadmap module 2.
+looks like **`M02.D01.T04`** — module, step, task, two digits each — and appears in the checklist,
+the trace and the commit subject; its span follows it, `M02.D01.T04 [F1–F3]` (`AR20`, `AR21`).
+`D##` is a step, `D1`–`D3` a difficulty: the two digits tell them apart.
 
 Normative force in prose uses **MUST**, **MUST NOT**, **SHOULD**, **MAY**, **NOTE**. The bold keyword
 is the norm; the same word in ordinary prose is not.

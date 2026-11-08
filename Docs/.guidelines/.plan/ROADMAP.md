@@ -13,9 +13,9 @@ real dependency. Steps and tasks are derived for one module at a time, when it o
 | finding | evidence |
 |---|---|
 | The guidelines run the Dotted layout, with the decision register, the constraints and the four-digit version | module 1, below; `ADR-007` to `ADR-011` |
-| The ladder documents still speak `M<n>.F<k>.T<nn>`, with the phases as sections of a module | `AR20`, `AR21`, [`PLANNING.md`](PLANNING.md), [`LADDER_PLAN_M_1.md`](LADDER_PLAN_M_1.md), `PROTOCOL` S6–S7; `ADR-008` decided the replacement |
-| The code-style conventions that identify the work have no `AR#`: no inheritance for reuse, the banned names, services accepting `I` and never `M`, the full prefix register | [`PHASES.md`](PHASES.md) §5, §6, §8; `ARCHITECTURE.md` knows six prefixes |
-| `R` means **record** in `AR10` and **repository** in `PHASES.md` §5.1 | both |
+| The ladder is `M##.D##.T##`, with the phases inside every task, and the exemplar is a blueprint | module 2, below; `AR20`, `AR21`, [`BLUEPRINT_M_01.md`](BLUEPRINT_M_01.md) |
+| No inheritance for reuse, the banned names and the prefix register are norms; every norm has an anchor | `AR28`, `AR29`, `AR31` in [`ARCHITECTURE.md`](../.decisions/ARCHITECTURE.md) |
+| "Services accept `I`, never `M`" has no norm, and the five apps break it by design: each service transforms its own immutable model (`MLedger Ingest(MLedger, …)`, `MEnvelope Seal(MEnvelope)`) | `PHASES.md` §6 carried the rule; measured on 2026-11-07 across the five apps' services |
 | No norm is checked by a machine. Five apps ship ten probe files, and none reads a `.csproj` | AutoRpg's `Seta_aponta_para_dentro` turns `AR3`–`AR5` and `AR8` into a test |
 | Nothing checks that a guideline link resolves | Glyph's `link-graph.js` refuses a dead link and a document more than two links from the entry point |
 | Every commit warns that LF will become CRLF | `.gitattributes` holds `* text=auto` and nothing else; AutoRpg pins its oracles to LF |
@@ -25,17 +25,14 @@ real dependency. Steps and tasks are derived for one module at a time, when it o
 
 ## 2. Decisions
 
-Answered on 2026-11-07, and recorded in the register: `ADR-004` to `ADR-011`.
+Answered on 2026-11-07, and recorded in the register: `ADR-004` to `ADR-015`.
 
 Still owed by the Regent:
 
 | | decision | recommendation | blocks |
 |---|---|---|---|
-| D3 | the `R` prefix | keep `R` = record, as `AR10` has it; `PHASES.md`'s repository takes another prefix | module 2 |
-| D6 | language | English with en-EU spelling, as the template is written; in a project whose prose is another language, technical terms stay English (Glyph's constraint) | module 2 |
-| D8 | the class of each new norm (`AR26`) | inheritance and names: invariant, so machine-checkable; the rest as stated per task | module 2 |
+| AR30 | how "services accept `I`, never `M`" reads, given that every app service takes its own model | narrow it: a service takes its **own** concept's `M` and returns a new one (`AR14`); it **MUST NOT** take another concept's `M` — that crosses through the other concept's `I`. Then it is an invariant the apps already keep | module 3, task 1 |
 | D10 | what a clone inherits and what it cites | a clone keeps `ARCHITECTURE`, `PROTOCOL`, `.team/` and the three method tables of `.constraints/`; starts `.decisions/`, `.orders/`, `.plan/ROADMAP.md` and `CHANGELOG.md` empty; and records in its `.sources/` the template version it started from | module 5 |
-| D11 | what `F3`–`F5` publish | `PHASES.md` reads `F3` as the export manifest, `F4` as adapters and presenters, `F5` as the surface; AutoRpg reads `F3` as the external surface (`_DRIVE`, composition, authorisation) and `F4` as the typed client. One reading, written once | module 2 |
 
 ## 3. Modules
 
@@ -48,33 +45,24 @@ Each task is one commit, cites a norm and names its proof (`AR20`).
 `.orders/` and `.history/` were born; `DC1`–`DC3` became `ADR-001`–`ADR-003` in a dated register; the
 root `CLAUDE.md` points at the entry; the version moved to `0.1.0.01`.
 
-### Module 2 — the ladder restated, and the conventions promoted to norms
+### Module 2 — the ladder restated, and the conventions promoted to norms — **built 2026-11-07, in review**
 
-**Objective.** A ladder written today reads `M##.D##.T##` everywhere, and the conventions that
-identify the work are citable `AR#`, not folklore in a plan file. New ids start at `AR28`.
-
-1. `AR20` and `AR21` restated for `ADR-008`: the step is the dependency boundary, the task the
-   reversibility boundary, `F0`–`F6` inside every task. *Proof:* no `M<n>.F<k>` id left outside acts.
-2. `PLANNING.md` and the exemplar: `LADDER_PLAN_M_1.md` becomes `BLUEPRINT_M_01.md`, steps holding
-   tasks, each task listing its seven phases. `PROTOCOL` S6–S7, `CHECKLIST`, `TRACE`, the role files and
-   the README follow.
-3. **No inheritance for reuse** — interface composition only; presentation reuse by composition or a
-   presenter. Kind: invariant (D8).
-4. **Banned names**, with `Core` narrowed to "a type or namespace named Core", since `_CORE` is a domain.
-5. **Interface-first signatures**: services accept `I`, never `M`. Kind: invariant.
-6. **The prefix register**: the full active set and the reserved ones with their triggers; `R` settled
-   (D3). Amends `AR10`.
-7. `PHASES.md` made generic (a binding block, no card-game examples, `S#` read as `T##`) and its phase
-   reading settled (D11).
-8. Every norm heading carries an anchor (`§AR28`), so a descendant's citation resolves.
+`AR20` and `AR21` restated for `ADR-008`, with `PLANNING.md` amendment A1; `LADDER_PLAN_M_1.md`
+became [`BLUEPRINT_M_01.md`](BLUEPRINT_M_01.md), steps holding tasks, each task listing its seven
+phases; `PROTOCOL` S5–S9, the checklist, the role files, `ORCHESTRATION.md` and the README moved to
+`M##.D##.T##`. `AR28` (composition, never inheritance) and `AR29` (the banned names) were born as
+invariants, and `AR31` (the prefix register, `R` the record and `Repo` the repository) as a gate.
+`PHASES.md` became generic and folds into `AR20` (`ADR-013`). Every norm carries an anchor,
+`ARCHITECTURE.md#ar28`. Left out: the signature rule, which waits as `AR30` in §2.
 
 ### Module 3 — the gates, as `_PROBE` tests
 
 **Objective.** The norms a machine can check are checked, each gate seen failing first, and
 `dotnet test` stays the only toolchain.
 
-1. **The arrow**: each app's `_PROBE` reads the `.csproj` files and refuses `AR3`, `AR4`, `AR5` and
-   `AR8`. *Proof:* a planted reference fails it.
+1. **The arrow and the invariants**: each app's `_PROBE` reads the `.csproj` files and refuses
+   `AR3`, `AR4`, `AR5` and `AR8`, and reads the sources for `AR28`, `AR29` and, once decided,
+   `AR30`. *Proof:* a planted violation of each fails it.
 2. **Recognisers** for the retired forms: `DC#` and the Classic paths outside the acts and the attic.
 3. **The link gate**: every internal link resolves, and every guideline is within two links of the
    entry point. Where it lives is a question for the Regent: each app is deletable, so a
@@ -119,6 +107,5 @@ M1 ──▶ M2 ──▶ M3 ──▶ M4
 
 ## 5. Not verified
 
-The `F3`–`F5` reading of AutoRpg (D11) was taken from its ladder's legend, not from its code.
 Glyph's gate scripts were read from their headers, not run. instituto-conforme's own gate,
 `scripts/check_guidelines.py`, was not read.

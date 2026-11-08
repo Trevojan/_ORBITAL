@@ -3,7 +3,7 @@ role: PO
 full_name: Product Owner
 type: role_definition
 related: [TEAM.md, DV.md, QA.md, DA.md]
-owns: [BRIEFING.md, GRAND_PLAN.md, MINIMUM_PLAN.md, LADDER_PLAN_M_X.md, BACKLOG.md, TRACE.md, GATE_*.md]
+owns: [BRIEFING.md, GRAND_PLAN.md, MINIMUM_PLAN.md, BLUEPRINT_M_##.md, LADDER_PLAN_M_##.md, BACKLOG.md, TRACE.md, GATE_*.md]
 gate: solution
 discipline: creative_thinking
 ---
@@ -85,10 +85,10 @@ smallest thing that ends it?*
 | Briefing | `Docs/.guidelines/.sources/BRIEFING.md` |
 | Grand plan | `Docs/.guidelines/.plan/GRAND_PLAN.md` |
 | Minimum plan | `Docs/.guidelines/.plan/MINIMUM_PLAN.md` |
-| Module blueprints | `Docs/.guidelines/.plan/LADDER_PLAN_M_<n>.md` |
+| Module blueprints | `Docs/.guidelines/.plan/BLUEPRINT_M_##.md`, `LADDER_PLAN_M_##.md` once signed |
 | Backlog | `Docs/.guidelines/.plan/BACKLOG.md` |
 | Trace | `Docs/.guidelines/.plan/TRACE.md` |
-| Gate sheets | `Docs/.guidelines/.plan/GATE_M<n>_<date>.md` |
+| Gate sheets | `Docs/.guidelines/.plan/GATE_M##_<date>.md` |
 
 ## 8. Role in the Plans
 

@@ -6,6 +6,23 @@ The record of what changed, newest first. The version rule is in
 
 ## [Unreleased]
 
+## 1.2.0.02 — 2026-11-07
+
+The ladder is planned the way the projects built on this template already plan it, and the code
+conventions that identify the work can now be cited.
+
+- **Module, step, task.** A module climbs in steps, each step holds tasks, and a task is
+  addressed `M01.D02.T03`. A step opens only when the one before it has closed; a task is one
+  commit, undone whole or not at all.
+- **The seven phases live inside every task.** Each task lists all seven and declares empty the
+  ones it does not touch, so a reviewer sees at a glance how deep a change goes.
+- **A plan stays editable until it is signed.** A module's plan is a blueprint until its gate is
+  signed, and is renamed — and frozen — in the commit that signs it.
+- **Three conventions became norms.** Reuse by composition, never by inheritance; names that say
+  a responsibility, never `Helper` or `Manager`; and one register of file prefixes, where a
+  repository is `Repo` and `R` stays the record.
+- **Every norm has an address** another project can link to.
+
 ## 0.1.0.01 — 2026-11-07
 
 The guidelines are reorganised so that a person, or an agent, resuming the work finds where it

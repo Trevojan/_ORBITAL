@@ -54,7 +54,7 @@ At most **120 lines**. Revised by a change of premise, never by a sprint.
 |---|---|---|
 
 ## Mature business rules
-- <rule> — target module: <M#>
+- <rule> — target module: <M##>
 
 ## Integrations and target scale
 <external systems, volume, concurrency, response time>
@@ -121,12 +121,14 @@ gate sheet.
 
 ---
 
-## `LADDER_PLAN_M_X.md` — where the effort lives
+## `BLUEPRINT_M_##.md` → `LADDER_PLAN_M_##.md` — where the effort lives
 
-One file per module. Never overwritten once frozen.
+One file per module. Until its gate is signed it is `BLUEPRINT_M_##.md`, and it may be
+corrected; the commit that signs the gate renames it `LADDER_PLAN_M_##.md`, and from then on it
+is never overwritten (amendment A1).
 
 ```markdown
-# LADDER_PLAN_M_<X> — <module name>
+# BLUEPRINT_M_<##> — <module name>
 
 ## Why this module now
 <the business rule that forces it; the cost of not climbing>
@@ -145,38 +147,44 @@ One file per module. Never overwritten once frozen.
 - **Verifiability (QA)** — new cases: …; inherited cases that must keep passing: …;
   deliberately uncovered: …
 
-## Phases and tasks
+## Steps and tasks
 
-### F0 — Norm
-| Task | Covers | Files | Function / signature | Norm | Test | Commit |
+### `M<##>.D01` — <step name>
+<the functionality this step climbs at once; it opens when the previous step has closed>
+
+#### `M<##>.D01.T01` — <one imperative sentence, no "and">
+| Covers | Span | Files | Function / signature | Norm | Test | Commit |
 |---|---|---|---|---|---|---|
-| `M<X>.F0.T01` | | | | | | |
+| <B#> | [F1–F2] | | | | | |
 
-### F1 — Contract
-### F2 — Rule
-### F3 — Exposure
-### F4 — Consumption
-### F5 — Surface
-### F6 — Closure
+| Phase | Publishes in this task |
+|---|---|
+| F0 Norm | <the rule, or *empty*> |
+| F1 Contract | |
+| F2 Rule | |
+| F3 Exposure | |
+| F4 Consumption | |
+| F5 Surface | |
+| F6 Closure | |
 
-<a phase with nothing in it says so here; it is never omitted>
+<every task lists all seven phases; one with nothing to publish says *empty*, never omitted>
 
 ## POC required
 | Unproven risk | Question the POC answers | Discardable? |
 |---|---|---|
 
 ## Completion criterion
-<what must be true before M<X+1> may open>
+<what must be true before M<##+1> may open>
 ```
 
 ---
 
 ## Gate sheet
 
-Two kinds. Both live in `.plan/GATE_M<X>_<date>.md`.
+Two kinds. Both live in `.plan/GATE_M##_<date>.md`.
 
 ```markdown
-# GATE — <date> — opening M<X>
+# GATE — <date> — opening M<##>
 `type: triangulation | module`
 
 | Condition | Check | Result |
@@ -185,7 +193,7 @@ Two kinds. Both live in `.plan/GATE_M<X>_<date>.md`.
 | MINIMUM <= Σ LADDER + POC | every factor is covered by a written module or a delimited POC | ✅ / ❌ |
 
 <for type: module, add>
-| Previous completion criterion | every line of M<X-1> §Completion criterion verified | ✅ / ❌ |
+| Previous completion criterion | every line of M<##-1> §Completion criterion verified | ✅ / ❌ |
 | QA version verdict | issued: correction / compatible addition / break | ✅ / ❌ |
 | No trace regression | no TRACE.md item moved backwards | ✅ / ❌ |
 
@@ -199,7 +207,7 @@ If ❌ on any line, execution does not open. Corrective action:
 - Negative attestation → the module changes, or the POC becomes about <…>
 ```
 
-**`type: triangulation`** is issued once, opening `M1`, with the two formula conditions and
+**`type: triangulation`** is issued once, opening `M01`, with the two formula conditions and
 the three attestations.
 **`type: module`** is issued at every later opening, adding the three extra lines.
 
@@ -245,4 +253,9 @@ the three attestations.
 > Append-only, dated. The rules above are not rewritten; what practice demands is added
 > here. An amendment that contradicts a rule above **MUST** say so on its own line.
 
-*(empty at opening)*
+**A1 — 2026-11-07 — the ladder is `M##.D##.T##`, with the phases inside every task (`ADR-008`).**
+A module climbs in steps (`D##`), each step holds tasks (`T##`), and every task runs `F0`–`F6`
+as its protocol, an empty phase declared empty (`AR20`, `AR21`). Rules 3 and 7 name the file
+`LADDER_PLAN_M_X.md`: until its gate is signed that file is `BLUEPRINT_M_##.md`, and the commit
+that signs the gate renames it `LADDER_PLAN_M_##.md`. **This amends rules 3 and 7** in the name
+of the file only; what they require stands.

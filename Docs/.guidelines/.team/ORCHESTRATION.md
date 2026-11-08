@@ -1,10 +1,4 @@
----
-artifact: ORCHESTRATION
-nome_completo: Agent & Subagent Orchestration
-versao: 1.0
-tipo: definicao_de_processo
-relacionados: [PHASES.md, GRAND_PLAN.md, MINIMUM_PLAN.md, PO.md, DV.md, QA.md, DA.md]
----
+**Owner:** the Regent · **Related:** [`PHASES.md`](../.plan/PHASES.md), [`TEAM.md`](TEAM.md), the four role files
 
 # Orchestration — Agents over the Planning Vertical
 
@@ -12,7 +6,7 @@ relacionados: [PHASES.md, GRAND_PLAN.md, MINIMUM_PLAN.md, PO.md, DV.md, QA.md, D
 
 ## 0. The Premise
 
-Nothing here invents new structure. `MAX → MIN → L# → S# → F# → Rule A/B → file`
+Nothing here invents new structure. `MAX → MIN → M## → D## → T## → F# → Rule A/B → file`
 is already a decomposition of work into units with declared inputs, declared
 outputs and declared boundaries. That is the same thing an agent topology needs.
 
@@ -31,15 +25,16 @@ system must make a unit of work verifiable without reading all of it.
 |---|---|---|---|
 | **MAX** | Ambition | Never assigned. Context only. | Human |
 | **MIN** | Sufficiency | The termination condition of the whole system | Human + PO |
-| **L#** | Decoupling | **Unit of parallelism** — one isolated workspace each | PO |
-| **S#** | Time | **Unit of agent invocation** — one session, one commit | PO, refined by DV |
+| **M##** | Decoupling | **Unit of parallelism** — one isolated workspace each | PO |
+| **D##** | Dependency | **Unit of sequencing** — opens when the previous step has closed | PO |
+| **T##** | Time | **Unit of agent invocation** — one session, one commit | PO, refined by DV |
 | **F#** | Depth | **Unit of role assignment** — which role owns this layer | Fixed by PHASES.md |
 | **Rule A/B** | Legality | **Unit of automated verification** — the gate before any human looks | Machine |
 | **file** | Artifact | The reviewable object | Agent |
 
 Read downward, each level narrows what the next one is allowed to decide. That
-narrowing *is* the safety property. An agent operating at S# cannot renegotiate
-L#; an agent operating at F2 cannot invent an F0 norm.
+narrowing *is* the safety property. An agent operating at T## cannot renegotiate
+M##; an agent operating at F2 cannot invent an F0 norm.
 
 ### 1.1 MAX is never given to an agent
 
@@ -51,10 +46,10 @@ MAX may be *quoted* to an agent as rationale. It may never be the target.
 
 ### 1.2 MIN is the only global termination condition
 
-Every agent run terminates on its step. Only the human stops the system, and
+Every agent run terminates on its task. Only the human stops the system, and
 MIN is what tells them when. Without MIN there is no completion, only fatigue.
 
-### 1.3 L# is where parallelism is legal — and only there
+### 1.3 M## is where parallelism is legal — and only there
 
 Ladders are decoupled by construction: separate modules, separate business
 rules. That is exactly the precondition for concurrent agents without merge
@@ -65,20 +60,20 @@ the same F1 vocabulary, and the reconciliation cost exceeds the parallel gain.
 If a ladder feels big enough to need two agents, it is two ladders that have not
 been separated yet.
 
-### 1.4 S# is the session boundary
+### 1.4 T## is the session boundary
 
-One step, one agent session, one commit. This is the most load-bearing mapping
+One task, one agent session, one commit. This is the most load-bearing mapping
 in the document, and it holds for a practical reason: **the commit is the review
 object.** If a session produces two commits, review granularity has decoupled
 from planning granularity and the plan stops describing the repository.
 
-A reopened step is a new session labelled as a reopening, not a continuation of
+A reopened task is a new session labelled as a reopening, not a continuation of
 the old context. Fresh context, explicit statement of what is being re-entered.
 
 ### 1.5 F# is the role assignment axis
 
 Phases are not sequential tasks handed down a chain. They are *depths*, and each
-depth has an owner. A step declares a span — `S7 [F1–F3]` — and the span
+depth has an owner. A task declares a span — `M01.D02.T07 [F1–F3]` — and the span
 determines which roles participate.
 
 ### 1.6 Rules A and B are the gate
@@ -153,7 +148,7 @@ which result is hoped for will find it.
 
 ### 2.3 The orchestrator is not a role
 
-The orchestrator selects the ladder, sequences steps, dispatches role agents,
+The orchestrator selects the ladder, sequences tasks, dispatches role agents,
 runs the gate and routes returns. It has no opinion on product, code, quality or
 data. It owns no phase and authors no artifact.
 
@@ -170,12 +165,12 @@ contract tables, invisible to the DoD.
                         │
         ┌───────────────┼───────────────┐
         │               │               │
-       L1              L2              L3          ← parallel, isolated workspaces
+       M01             M02             M03         ← parallel, isolated workspaces
         │               │               │
-   S1 S2 S3 …      S1 S2 …         S1 …            ← serial within a ladder
+   T01 T02 T03 …   T01 T02 …       T01 …           ← serial within a ladder, step by step
         │
    ┌────┴────┐
-   │  STEP   │
+   │  TASK   │
    └────┬────┘
         │
    span [F1–F3]
@@ -191,7 +186,7 @@ contract tables, invisible to the DoD.
    one commit
 ```
 
-### 3.2 The step cycle
+### 3.2 The task cycle
 
 **1 · Frame (PO).** Emits the story: problem, acceptance criteria, out-of-scope,
 the declared F-span, and the citation of the F0 norm it serves. Rejected if the
@@ -200,15 +195,15 @@ span is unstated or the norm is uncited.
 **2 · Challenge (QA).** Reads the criteria *before* implementation and returns
 ambiguities. This is the cheapest defect removal in the cycle and the one most
 often skipped. Ambiguity found here costs a sentence; found at F5 it costs a
-step.
+task.
 
-**3 · Shape (DA, conditional).** If the step touches `Ev`, `Cmd` or anything
+**3 · Shape (DA, conditional).** If the task touches `Ev`, `Cmd` or anything
 measured, DA specifies name, trigger, payload, types and obligation *before* DV
 implements. Instrumentation retrofitted after the fact produces data with no
 history.
 
 **4 · Build (DV).** Implements strictly inside the declared span. Any need to
-exceed the span **halts the step** and returns to PO — it does not silently
+exceed the span **halts the task** and returns to PO — it does not silently
 widen. Span violation is the primary containment failure of agent coding.
 
 **5 · Gate (machine).** Rule A, Rule B, tests, F3 manifest diff. Failure returns
@@ -235,7 +230,7 @@ Not the code. The **review packet**:
 - the QA risk opinion
 - the diff itself, read last and selectively
 
-If the packet is trustworthy, most steps are approved from the first four items.
+If the packet is trustworthy, most tasks are approved from the first four items.
 That is the throughput mechanism. When the packet stops being trustworthy, the
 correct response is to tighten the gate, not to read more code — reading more
 code does not scale and the agents will outproduce it.
@@ -247,19 +242,19 @@ code does not scale and the agents will outproduce it.
 | Span creep | Diff touches phases outside the declared span | Gate check: declared span vs. touched phases |
 | Norm invention | An `AR#`/`BR#` appears with no human ratification | F0 requires a human signature |
 | Sycophantic review | QA approves everything | QA never receives DV reasoning; track escape rate |
-| Self-acceptance | Producing role closes its own step | F6 requires a different role |
+| Self-acceptance | Producing role closes its own task | F6 requires a different role |
 | Ladder contention | Two agents editing the same F1 vocabulary | One agent per ladder, always |
 | Silent manifest widening | F3 grows inside an F4 commit | Manifest diff in every packet |
 | Context bleed | An agent cites information it was never given | Isolated contexts; treat as a containment bug |
 | Review debt | Merged-unreviewed backlog grows | **Stop dispatching.** The queue is the ceiling. |
-| Plan drift | Commits stop matching steps | One session, one commit, no exceptions |
+| Plan drift | Commits stop matching tasks | One session, one commit, no exceptions |
 
 The last two are the ones that actually kill the system. The rest are noisy and
 therefore survivable.
 
-## 5. Definition of Done — one orchestrated step
+## 5. Definition of Done — one orchestrated task
 
-- [ ] Step cites an F0 norm ratified by a human
+- [ ] Task cites an F0 norm ratified by a human
 - [ ] F-span declared before dispatch
 - [ ] QA challenged the criteria before implementation
 - [ ] DA specified instrumentation before DV, where applicable
@@ -276,11 +271,11 @@ therefore survivable.
 
 - **Review latency** — dispatch → human decision. The real throughput number.
 - **Merged-unreviewed count** — must trend to zero. If it rises, dispatch less.
-- **Span violation rate** — steps touching undeclared phases.
+- **Span violation rate** — tasks touching undeclared phases.
 - **QA escape rate** — defects that passed QA and failed at human review or in
   production. Rising means the QA agent has gone sycophantic.
 - **Gate return rate** — high is fine and cheap; it means the gate is working.
-- **Steps per ladder before integration** — long runs hide divergence.
+- **Tasks per ladder before integration** — long runs hide divergence.
 - **Ratio of norms drafted by agents to norms ratified by humans** — a rising
   ratio means the appeal court is being packed.
 
@@ -296,7 +291,7 @@ therefore survivable.
 - A QA verdict of "approved" with no residual risk statement
 - Widening F3 as a side effect
 - Scaling agent count while review latency is already climbing
-- Reopening a step by continuing the old session context
+- Reopening a task by continuing the old session context
 - Writing agent prompts that duplicate the role docs and then diverge from them
 
 ## 8. Adoption Order
@@ -307,7 +302,7 @@ Do not start with the topology. Start with the gate.
    by hand. If the gate is not trustworthy, agents only produce faster garbage.
 2. **One role.** DV only, human as PO/QA/DA. Learn where span creep happens.
 3. **Add QA, isolated.** Artifacts only. Watch the escape rate; if it is zero
-   across several steps, suspect sycophancy rather than celebrate.
+   across several tasks, suspect sycophancy rather than celebrate.
 4. **Add DA** when instrumentation retrofits start hurting.
 5. **Parallelise ladders** last, and only after review latency has been stable
    at one ladder.

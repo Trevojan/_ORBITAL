@@ -83,7 +83,8 @@ No cell is empty.
 
 Three living documents, always present: `.plan/GRAND_PLAN.md` (the ideal, the ceiling of
 coherence), `.plan/MINIMUM_PLAN.md` (the shortest path to the MVP) and
-`.plan/LADDER_PLAN_M_X.md` (one file per module).
+one ladder per module — `.plan/BLUEPRINT_M_##.md`, renamed `LADDER_PLAN_M_##.md` when its
+gate is signed.
 
 Execution opens through the gate. **The gate formula is defined in
 [`.plan/PLANNING.md`](../.plan/PLANNING.md#gate-formula) and nowhere else** — including here.

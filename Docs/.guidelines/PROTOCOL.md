@@ -33,11 +33,11 @@ must reach the fruit.**
                      Fertilizer            more context for the root
 ```
 
-| Part | System scale | Task scale (`T#`) |
+| Part | System scale | Task scale (`T##`) |
 |---|---|---|
 | **Root** | the client's problem — `.sources/BRIEFING.md` | why this task exists: the norm it obeys |
 | **Fertilizer** | context added to deepen the root — interview answers, new facts | clarification that refines the task before it starts |
-| **Trunk** | the effort — the ladder `M1..Mn` | the single commit |
+| **Trunk** | the effort — the ladder `M01..Mnn` | the single commit |
 | **Branches** | the resources — projects and files | the files this task touches |
 | **Leaves** | the actions | the concrete edits |
 | **Fruit** | the goal — the deliverable | the done state, proven by a named test |
@@ -63,11 +63,11 @@ Operation, fruit the Goal.
 | **S2** | domain nouns → concepts → projects + `AR#` | every concept resolved; **nothing created** |
 | **S3** | scope → `.plan/BACKLOG.md` | every item has `B#`, category, `D1`–`D3` |
 | **S4** | backlog → `.plan/MINIMUM_PLAN.md` | ≤90 lines; `N_mvp` declared; nuclear POC written |
-| **S5** | backlog → modules `M1..Mn` | ordered by real dependency |
-| **S6** | each module → phases `F0..F6` | seven phases present; empty ones declared empty |
-| **S7** | each phase → tasks `T#` | every task meets the definition of done |
+| **S5** | backlog → modules `M01..Mnn` | ordered by real dependency |
+| **S6** | each module → steps `D01..Dnn` | each step opens only when the previous one has closed |
+| **S7** | each step → tasks `T##`, each running `F0..F6` | every task meets the definition of done; its empty phases declared empty |
 | **S8** | S5–S7 → `CHECKLIST.md`, `TRACE.md` | trace closes both ways |
-| **S9** | all → `.plan/GATE_M1_<date>.md` | `SOLUTION: yes` opens execution |
+| **S9** | all → `.plan/GATE_M01_<date>.md` | `SOLUTION: yes` opens execution |
 
 ---
 
@@ -116,8 +116,8 @@ This is the concept alignment the template exists for.
 3. Give each concept a home domain, using `ARCHITECTURE.md` AR2 and the arrow in AR3.
 4. Run the type table (AR12) over each concept's parts to get its file set.
 
-> **MUST NOT** create any project here. S2 *plans* them. Creating one is a task inside
-> `M1.F1`, and AR9 requires explicit confirmation first.
+> **MUST NOT** create any project here. S2 *plans* them. Creating one is a task of `M01` that
+> publishes in its F1, and AR9 requires explicit confirmation first.
 
 ---
 
@@ -151,36 +151,41 @@ answer is no.
 
 ### S5 — Modules
 
-**Consumes** the backlog and the minimum plan. **Produces** the module list `M1..Mn`.
+**Consumes** the backlog and the minimum plan. **Produces** the module list `M01..Mnn`.
 
-A module is a **decoupled business rule** — one step of the ladder, coherent, deliverable
-and reversible, that does not force the previous step to be rewritten.
+A module is a **decoupled business rule** — a feature anyone recognises by name, coherent,
+deliverable and reversible, that does not force the previous module to be rewritten.
 
 Order by real dependency. The first module is the one with no input dependency. Preference,
 enthusiasm and the order things were mentioned are not orderings.
 
-> **Non-functional requirements never become modules.** They anchor to F0 or F5 of the
-> first module that would suffer without them. If no module would suffer, the requirement
+> **Non-functional requirements never become modules.** They anchor to the F0 or F5 of a
+> task in the first module that would suffer without them. If no module would suffer, the requirement
 > stays `[late]` in the backlog and never enters the ladder.
 
 ---
 
-### S6 — Phases
+### S6 — Steps
 
-**Consumes** each module. **Produces** its seven phases, `F0` through `F6` (AR20).
+**Consumes** each module. **Produces** its steps, `D01` through `Dnn` (AR21).
 
-A phase with nothing in it declares itself empty. Omitting it hides a decision; declaring it
-records one.
+A step is a functionality the module climbs at once. It is the dependency boundary: a step
+opens only when the previous one has closed, so steps are ordered by what each needs from the
+one before — never by preference.
 
 ---
 
 ### S7 — Tasks
 
-**Consumes** each phase. **Produces** its tasks, as rows:
+**Consumes** each step. **Produces** its tasks, and inside each task its seven phases (AR20):
 
-| Task | Covers | Files | Function / signature | Norm | Test | Commit |
-|---|---|---|---|---|---|---|
-| `M1.F2.T03` | `B7` | path | signature | `AR17` | test name | commit subject |
+| Task | Covers | Span | Files | Function / signature | Norm | Test | Commit |
+|---|---|---|---|---|---|---|---|
+| `M01.D02.T03` | `B7` | `[F1–F2]` | path | signature | `AR17` | test name | commit subject |
+
+Under each task, the seven phases are listed, each with what it publishes in that task. A phase
+with nothing to publish declares itself empty: omitting it hides a decision, declaring it
+records one. The phases that publish are the task's **span**.
 
 **Definition of done for a task — all seven, no exceptions:**
 
@@ -206,7 +211,7 @@ whether the next step may start.
 |---|---|---|
 | **A** | Open the task | Its architecture is on the checklist |
 | **B** | Define it as a tree: problem, effort, resources, actions, goal | **Do the resources prove a solid problem?** If the resources are large and the problem is vague, the task is a solution looking for a justification |
-| **C** | Fertilize — connect the task to its phase and its module's objective | **Does it belong as `[late]`?** A task that turns out to be non-functional leaves the ladder here, not after it is built |
+| **C** | Fertilize — connect the task to its step and its module's objective | **Does it belong as `[late]`?** A task that turns out to be non-functional leaves the ladder here, not after it is built |
 | **D** | Do the work | Its architecture is still on the checklist |
 | **E** | Normalize and categorize what is in flight | Its architecture is still on the checklist |
 | **F** | Conclude and categorize the task | The commit stands alone and the named test is green |
@@ -246,12 +251,12 @@ that never became a backlog item.
 
 ### S9 — Gate
 
-**Consumes** everything. **Produces** `.plan/GATE_M1_<date>.md`.
+**Consumes** everything. **Produces** `.plan/GATE_M01_<date>.md`.
 
 The formula lives in `.plan/PLANNING.md` and is stated **there and nowhere else**. Verify
 its two conditions, attach the three attestations, and record the verdict.
 
-`SOLUTION: yes` opens execution at `M1.F0.T01`.
+`SOLUTION: yes` opens execution at `M01.D01.T01`.
 `SOLUTION: no` does not open anything — take the corrective action the sheet names and
 return to S4 or S6.
 
@@ -279,6 +284,6 @@ return to S4 or S6.
 | The grand plan will not fit 120 lines | Execution detail leaked into the ideal | Move the excess to the module it belongs to. |
 | The minimum plan covers everything | It was not sliced | Cut factors out to later modules until `MINIMUM < GRAND` is strictly true. |
 | A task will not fit one sentence | It is two tasks | Split it. |
-| A task cites no norm | The norm was never written | Go back to that module's F0 and write it. |
+| A task cites no norm | The norm was never written | Write it first, in the F0 of a task ahead of this one. |
 | The trace has an empty cell | An item was neither covered nor consciously excluded | Decide, then record the decision. |
 | The gate returns `no` | Either side of the formula | Follow the corrective action on the sheet. Execution stays shut. |

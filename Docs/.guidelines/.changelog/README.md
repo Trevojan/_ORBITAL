@@ -43,6 +43,7 @@ what someone will notice.
 
 | version | what moved the highest digit |
 |---|---|
+| **1.2.0.02** | **rule** — `AR20` and `AR21` change meaning: the ladder is `M##.D##.T##` and the phases run inside every task (`ADR-008`); `AR28`, `AR29` and `AR31` are born (`ADR-012` to `ADR-014`). Roadmap module 2 closing moves `structure`, its records move `record` |
 | **0.1.0.01** | **structure** — the guidelines take the Dotted layout (`ADR-007`), with the decision register, the constraints and this rule. The scheme starts here: until this release the template carried SemVer `0.1.0`, and that history is counted as `0.0.0.00` |
 
 ## The rule learnt by rereading

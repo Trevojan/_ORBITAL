@@ -3,34 +3,94 @@
   "schema": 1,
   "updated": "2026-11-07",
   "items": [
-    { "id": "R0-ORPHANS", "title": "Orphan work sorted into increments (committed) and discards (ADR-005, ADR-006)",
-      "state": "review", "who": "agent",
+    {
+      "id": "R0-ORPHANS",
+      "title": "Orphan work sorted into increments (committed) and discards (ADR-005, ADR-006)",
+      "state": "review",
+      "who": "agent",
       "next": "Regent: review the D9 commits on main",
-      "where": ["Docs/.guidelines/.plan/PHASES.md", "Docs/.guidelines/.team/ORCHESTRATION.md", "Docs/.guidelines/.plan/ROADMAP.md"],
-      "source": "Docs/.guidelines/.decisions/README.md#2026-11-07" },
-    { "id": "R0-BRANCH", "title": "main is the branch of record; ORBITAL_TEMPLATE fast-forwarded into it (ADR-004)",
-      "state": "review", "who": "agent",
+      "where": [
+        "Docs/.guidelines/.plan/PHASES.md",
+        "Docs/.guidelines/.team/ORCHESTRATION.md",
+        "Docs/.guidelines/.plan/ROADMAP.md"
+      ],
+      "source": "Docs/.guidelines/.decisions/README.md#2026-11-07"
+    },
+    {
+      "id": "R0-BRANCH",
+      "title": "main is the branch of record; ORBITAL_TEMPLATE fast-forwarded into it (ADR-004)",
+      "state": "review",
+      "who": "agent",
       "next": "Regent: push main (it carries ff90abd, not yet on origin)",
-      "source": "Docs/.guidelines/.decisions/README.md#2026-11-07" },
-    { "id": "REGENCY-3.3", "title": "regency update unstamped -> 3.3",
-      "state": "review", "who": "agent",
+      "source": "Docs/.guidelines/.decisions/README.md#2026-11-07"
+    },
+    {
+      "id": "REGENCY-3.3",
+      "title": "regency update unstamped -> 3.3",
+      "state": "review",
+      "who": "agent",
       "next": "Regent: review the update (plan UPD-1bf20b2e, committed in 749f386)",
-      "where": ["Docs/.guidelines/.shortcuts/.virtual/README.md", "Docs/.guidelines/.shortcuts/regency.json"],
-      "source": "plan UPD-1bf20b2e" },
-    { "id": "M1", "title": "Reinvention module 1: the Dotted layout, the ADR register, the constraints, the four-digit version, the CLAUDE.md pointer",
-      "state": "review", "who": "agent",
-      "next": "Regent: review the tree and commit it (/regency:arrange-cycle-commit); then answer D3, D6, D8 and D11 so module 2 can open",
-      "where": ["Docs/.guidelines/", "CLAUDE.md", "CHANGELOG.md", "README.md", "Directory.Build.props", ".gitignore"],
-      "source": "Docs/.guidelines/.plan/ROADMAP.md#3-modules" },
-    { "id": "M2", "title": "The ladder restated as M##.D##.T## (ADR-008), and the code conventions promoted to anchored AR norms",
-      "state": "backlog", "source": "Docs/.guidelines/.plan/ROADMAP.md#3-modules" },
-    { "id": "M3", "title": "The gates as _PROBE tests: the arrow, the recognisers, the link gate, LF, bUnit",
-      "state": "backlog", "source": "Docs/.guidelines/.plan/ROADMAP.md#3-modules" },
-    { "id": "M4", "title": "Adopting an existing codebase: the map, the oracle, the PROTOCOL entry",
-      "state": "backlog", "source": "Docs/.guidelines/.plan/ROADMAP.md#3-modules" },
-    { "id": "M5", "title": "The template as a source (D10), the lineage manifest, the ledger kept true",
-      "state": "backlog", "source": "Docs/.guidelines/.plan/ROADMAP.md#3-modules" },
-    { "id": "M6", "title": "Template expansion candidates, AR9 applies",
-      "state": "backlog", "source": "Docs/.guidelines/.plan/ROADMAP.md#3-modules" }
+      "where": [
+        "Docs/.guidelines/.shortcuts/.virtual/README.md",
+        "Docs/.guidelines/.shortcuts/regency.json"
+      ],
+      "source": "plan UPD-1bf20b2e"
+    },
+    {
+      "id": "M1",
+      "title": "Reinvention module 1: the Dotted layout, the ADR register, the constraints, the four-digit version, the CLAUDE.md pointer",
+      "state": "review",
+      "who": "agent",
+      "next": "Regent: review modules 1 and 2 together and commit them (/regency:arrange-cycle-commit)",
+      "where": [
+        "Docs/.guidelines/",
+        "CLAUDE.md",
+        "CHANGELOG.md",
+        "README.md",
+        "Directory.Build.props",
+        ".gitignore"
+      ],
+      "source": "Docs/.guidelines/.plan/ROADMAP.md#3-modules"
+    },
+    {
+      "id": "M2",
+      "title": "The ladder restated as M##.D##.T## (ADR-008); AR28, AR29, AR31 born; AR30 held for the Regent",
+      "state": "review",
+      "source": "Docs/.guidelines/.plan/ROADMAP.md#3-modules",
+      "who": "agent",
+      "next": "Regent: review; and decide how AR30 reads (ROADMAP §2) before module 3 checks it",
+      "where": [
+        "Docs/.guidelines/.decisions/ARCHITECTURE.md",
+        "Docs/.guidelines/.plan/PLANNING.md",
+        "Docs/.guidelines/.plan/BLUEPRINT_M_01.md",
+        "Docs/.guidelines/.plan/PHASES.md",
+        "Docs/.guidelines/PROTOCOL.md",
+        "Docs/.guidelines/.team/ORCHESTRATION.md"
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "The gates as _PROBE tests: the arrow, the recognisers, the link gate, LF, bUnit",
+      "state": "backlog",
+      "source": "Docs/.guidelines/.plan/ROADMAP.md#3-modules"
+    },
+    {
+      "id": "M4",
+      "title": "Adopting an existing codebase: the map, the oracle, the PROTOCOL entry",
+      "state": "backlog",
+      "source": "Docs/.guidelines/.plan/ROADMAP.md#3-modules"
+    },
+    {
+      "id": "M5",
+      "title": "The template as a source (D10), the lineage manifest, the ledger kept true",
+      "state": "backlog",
+      "source": "Docs/.guidelines/.plan/ROADMAP.md#3-modules"
+    },
+    {
+      "id": "M6",
+      "title": "Template expansion candidates, AR9 applies",
+      "state": "backlog",
+      "source": "Docs/.guidelines/.plan/ROADMAP.md#3-modules"
+    }
   ]
 }

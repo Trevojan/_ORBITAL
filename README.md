@@ -88,9 +88,10 @@ Full detail: [`ARCHITECTURE.md`](Docs/.guidelines/.decisions/ARCHITECTURE.md).
 
 ## The ladder
 
-Work is cut into **modules** (`M#`), each with the same seven **phases** (`F0`–`F6`), each
-phase holding **tasks** (`T#`). One task is one commit, always the smallest difficulty, always
-citing a norm and naming the test that proves it.
+Work is cut into **modules** (`M##`), each climbing in **steps** (`D##`), each step holding
+**tasks** (`T##`) — addressed `M01.D02.T03`. Inside every task the same seven **phases**
+(`F0`–`F6`) run as its protocol, an empty one declared empty. One task is one commit, always
+the smallest difficulty, always citing a norm and naming the test that proves it.
 
 Execution opens only through a gate, and the gate is a formula rather than an opinion. It is
 defined once, in [`PLANNING.md`](Docs/.guidelines/.plan/PLANNING.md#gate-formula).

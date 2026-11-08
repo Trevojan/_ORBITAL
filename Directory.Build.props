@@ -20,7 +20,7 @@
 	  carries the same number, and the two change in the same commit.
 	-->
 	<PropertyGroup>
-		<Version>0.1.0.01</Version>
+		<Version>1.2.0.02</Version>
 	</PropertyGroup>
 
 	<!--
