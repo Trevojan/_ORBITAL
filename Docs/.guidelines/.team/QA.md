@@ -77,10 +77,10 @@ confidence is named out loud rather than assumed away.
 
 | Artefact | Path |
 |---|---|
-| Test norms | `Docs/.guidelines/DECISIONS/TESTS.md` |
+| Test norms | `Docs/.guidelines/.decisions/TESTS.md` |
 | Test suites | `<APP>_ORBITAL/<CONCEPT>_PROBE/` |
 | Risk opinions | attached to the module's gate sheet |
-| Version verdicts | recorded in `Docs/.guidelines/SOURCES/CHANGELOG.md` |
+| Version verdicts | recorded in `CHANGELOG.md` at the repository root |
 
 ## 8. Role in the Plans
 

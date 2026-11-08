@@ -1,164 +1,124 @@
-# ROADMAP — expanding the template through virtual paths and shortcuts
+# ROADMAP — the template, reinvented from its descendants
 
-> **Proposal, not norm.** An agent does not ratify a norm it wrote, so every row marked
-> *Regent* waits for a decision. Measured 2026-10-13. Ledger: `.shortcuts/.virtual/ongoing.json`.
+> **Proposal, not norm.** An agent does not ratify a norm it wrote: the module order below waits for
+> the Regent, and only what [`.decisions/`](../.decisions/README.md) records is decided. Measured on
+> 2026-11-07 against Glyph, AutoRpg and instituto-conforme ([`.sources/`](../.sources/README.md)).
+> Ledger: `.shortcuts/.virtual/ongoing.json`.
 
-This is step S5 of `PROTOCOL.md`: modules ordered by real dependency. Phases (S6) and tasks
-(S7) are derived for one module at a time, when its Order opens — one Order open at a time.
+This is step S5 of [`PROTOCOL.md`](../PROTOCOL.md) applied to the template itself: modules ordered by
+real dependency. Steps and tasks are derived for one module at a time, when it opens.
 
 ## 1. Where the template stands
 
-| Finding | Evidence |
+| finding | evidence |
 |---|---|
-| The set uses the **Classic** layout; the current Regent standard is **Dotted** | `AGENTS.md`, `PLAN/`, `DECISIONS/`, `SOURCES/`, `TEAM/` against `.shortcuts`, `.plan`, `.decisions`, `.sources`, `.constraints`, `.orders`, `.changelog`, `.history`, `.team` (regency `library/layouts.md` §2) |
-| Glyph already runs the Dotted template, so it is the reference instance | `glyph-markup/.guidelines/` — `.shortcuts`, `.plan`, `.decisions`, `.constraints`, `.changelog`, `.orders` (series `EMS-###/ORD-####`), `.sources`, `.history` |
-| `main` is an **ancestor** of `ORBITAL_TEMPLATE`, which is four commits ahead | `git log main..ORBITAL_TEMPLATE`; the last one (`ff90abd`, WEB_ORBITAL) is not on `origin` |
-| Those four carry norms `main` lacks: `AR26` (invariant vs gate), `AR27` (phase review cites the module objective), the §7 vocabulary, `DC3`, the task lifecycle A–F, and the five app templates | `git diff main ORBITAL_TEMPLATE -- Docs` |
-| `README.md` on `main` says the two branches "diverge on purpose and are not merged"; git says one contains the other | `README.md` §Branches |
-| 11 uncommitted files on `main`. `PROTOCOL.md` differs only in line endings | `git diff` prints a CRLF warning and no hunks |
-| `flow.pgml/.hgml/.min.hgml/.xml` encode the lifecycle A–F and `AR27`, which already exist as prose on `ORBITAL_TEMPLATE` | `flow.hgml` steps A–F, "never review a phase without referencing its module's objective" |
-| `flow.hgml` still carries empty slots (`[ctx[/ctx]`, `[cnst[/cnst]`). Glyph reads them as `<needs>`, not errors | `SIGNATURES.md` §Arity |
-| One stash, on `DESKTOP_ORBITAL`: a Tailwind `output.css`. Outside this roadmap | `git stash show` |
-| No `.shortcuts/.virtual`, no manifest, no `.orders/` | `vp.py trace` |
+| The guidelines run the Dotted layout, with the decision register, the constraints and the four-digit version | module 1, below; `ADR-007` to `ADR-011` |
+| The ladder documents still speak `M<n>.F<k>.T<nn>`, with the phases as sections of a module | `AR20`, `AR21`, [`PLANNING.md`](PLANNING.md), [`LADDER_PLAN_M_1.md`](LADDER_PLAN_M_1.md), `PROTOCOL` S6–S7; `ADR-008` decided the replacement |
+| The code-style conventions that identify the work have no `AR#`: no inheritance for reuse, the banned names, services accepting `I` and never `M`, the full prefix register | [`PHASES.md`](PHASES.md) §5, §6, §8; `ARCHITECTURE.md` knows six prefixes |
+| `R` means **record** in `AR10` and **repository** in `PHASES.md` §5.1 | both |
+| No norm is checked by a machine. Five apps ship ten probe files, and none reads a `.csproj` | AutoRpg's `Seta_aponta_para_dentro` turns `AR3`–`AR5` and `AR8` into a test |
+| Nothing checks that a guideline link resolves | Glyph's `link-graph.js` refuses a dead link and a document more than two links from the entry point |
+| Every commit warns that LF will become CRLF | `.gitattributes` holds `* text=auto` and nothing else; AutoRpg pins its oracles to LF |
+| The Razor apps have no gate on their markup | AutoRpg adds bUnit to the `_PROBE` tooling for that reason |
+| `PROTOCOL.md` starts only from a briefing | AutoRpg was adopted from an existing codebase by measuring it first |
+| The descendants cite `AR1`–`AR27` without copying them | AutoRpg's and instituto-conforme's `.sources/`; the template is now a source, and nothing says what a clone inherits and what it cites |
 
-**Conventions against norms.** The `.csproj` conventions (`net10.0`, nullable, implicit usings,
-documentation encouraged, `0.1.0`, no vendoring, `_PROBE` tooling, no `src/`) are fully covered by
-`AR11`, `AR22`–`AR25`. The code-style conventions are not:
+## 2. Decisions
 
-| Convention | Where it lives today | Gap |
-|---|---|---|
-| Interfaces split and composed | `AR13` | covered |
-| Immutable models, factories, guard clauses, five-beat methods | `AR14`–`AR19` | covered |
-| **No inheritance for reuse**, presentation included | `PLAN/PHASES.md` §5.3, §6, §8, §13 (untracked) | no `AR` forbids it |
-| **Banned names** (`Mgr`, `Helper`, `Common`, `Base`, `Utils`, `Abs`/`A`, `DTO` bucket) | `PLAN/PHASES.md` §5.3 | no `AR`; also lists `Core`, which collides with the `_CORE` domain |
-| **Services accept `I`, never `M`** | `PLAN/PHASES.md` §6, lint 8 | no `AR` |
-| Prefix set `Ev Cmd X U C Vm P Cfg` and reserved `H Fct Pol Spec Vs` | `PLAN/PHASES.md` §5 | `AR10` knows six prefixes |
-| `R` means **record** in `AR10` and **repository** in `PHASES.md` §5.1 | both | collision |
-| `ADR#` in `PHASES.md` F0; `S#` as "one commit" against `PROTOCOL` S0–S9 | `PHASES.md` | ids that collide with `DC#` and the protocol steps |
-| `PHASES.md` examples are a card game (`GAME_CORE`, `Card`, `Player`) | `PHASES.md` §3, §7 | not generic |
+Answered on 2026-11-07, and recorded in the register: `ADR-004` to `ADR-011`.
 
-## 2. Decisions the Regent owes (R0)
+Still owed by the Regent:
 
-| | Decision | Recommendation | Blocks |
+| | decision | recommendation | blocks |
 |---|---|---|---|
-| D1 | Branch of record | `ORBITAL_TEMPLATE` is the line: push `ff90abd`, then move `main` to it. Correct the README table either way | R1, R4 |
-| D2 | Adopt the Dotted layout at `Docs/.guidelines/` | yes; becomes `DC4` | R1 |
-| D3 | `R` prefix | keep `R` = record (it is in `AR10`); re-prefix the repository | R2 |
-| D4 | Version scheme | keep SemVer for the .NET deliverable (`Version` is `0.1.0`, a SemVer ordering). Glyph's `release.frontend.rules.minor` never resets a digit; SemVer does | R3 |
-| D5 | Root `CLAUDE.md` | the Regency template tracks it; your rule gitignores it. Keep your rule; the index lives in `.shortcuts/README.md` | R5 |
-| D6 | Language | English, en-EU spelling (`behaviour` is already used); import the pt-BR template text translated | R1 |
-| D7 | Canonical form of lifecycle A–F and `AR27` | prose in `ARCHITECTURE.md` is the norm; `flow.pgml` is its encoding, `.hgml`/`.xml` are projections | R3 |
-| D8 | Class of each new norm (`AR26`) | inheritance and names: invariant (machine-checkable); the rest as stated per task | R2 |
-| D9 | Orphan work | which item owns the 11 files; whether `min_max_ladder.zip`, `inspection.pgml`, `production_level_flow.xml` are sources, history or discards | R1 |
-
-### Answered
-
-The answer in force is the newest; each one replaces the recommendation in its row above.
-
-| | Answer | Date |
-|---|---|---|
-| D1 | `main` is the branch of record: every branch converges to it, and it is kept as the template. `main` was fast-forwarded to `ORBITAL_TEMPLATE` (`ff90abd`); `DESKTOP_ORBITAL` was already inside it | 2026-11-07 |
-| D7 | Prose only. The lifecycle A–F lives in `PROTOCOL.md` and `AR27` in `ARCHITECTURE.md`; the `flow.*` encodings were discarded, so R3.T02–T03 and the `flow.pgml` row of R4 fall away | 2026-11-07 |
-| D9 | Increments, committed: `PLAN/PHASES.md` (with `PLAN/min_max_ladder.svg`, unzipped), `TEAM/ORCHESTRATION.md`, this roadmap and the ledger. Discarded: `flow.pgml`, `flow.hgml`, `flow.min.hgml`, `flow.xml`, `inspection.pgml`, `production_level_flow.xml`, `SOURCES/WORKFLOW.txt` | 2026-11-07 |
+| D3 | the `R` prefix | keep `R` = record, as `AR10` has it; `PHASES.md`'s repository takes another prefix | module 2 |
+| D6 | language | English with en-EU spelling, as the template is written; in a project whose prose is another language, technical terms stay English (Glyph's constraint) | module 2 |
+| D8 | the class of each new norm (`AR26`) | inheritance and names: invariant, so machine-checkable; the rest as stated per task | module 2 |
+| D10 | what a clone inherits and what it cites | a clone keeps `ARCHITECTURE`, `PROTOCOL`, `.team/` and the three method tables of `.constraints/`; starts `.decisions/`, `.orders/`, `.plan/ROADMAP.md` and `CHANGELOG.md` empty; and records in its `.sources/` the template version it started from | module 5 |
+| D11 | what `F3`–`F5` publish | `PHASES.md` reads `F3` as the export manifest, `F4` as adapters and presenters, `F5` as the surface; AutoRpg reads `F3` as the external surface (`_DRIVE`, composition, authorisation) and `F4` as the typed client. One reading, written once | module 2 |
 
 ## 3. Modules
 
-Each task is one commit, cites a norm, names its proof (`AR20`).
+Each task is one commit, cites a norm and names its proof (`AR20`).
 
-### R1 — Migrate to the Dotted layout
+### Module 1 — the Dotted layout and the registers — **built 2026-11-07, in review**
 
-**Objective.** A stranger opens `.shortcuts/README.md` and reaches any document by pointer;
-nothing is lost, and every path still resolves (`DC2`).
+`PLAN/`, `DECISIONS/`, `SOURCES/`, `TEAM/` became `.plan/`, `.decisions/`, `.sources/`, `.team/`;
+`AGENTS.md` became [`.shortcuts/README.md`](../.shortcuts/README.md); `.constraints/`, `.changelog/`,
+`.orders/` and `.history/` were born; `DC1`–`DC3` became `ADR-001`–`ADR-003` in a dated register; the
+root `CLAUDE.md` points at the entry; the version moved to `0.1.0.01`.
 
-| Classic | Dotted |
+### Module 2 — the ladder restated, and the conventions promoted to norms
+
+**Objective.** A ladder written today reads `M##.D##.T##` everywhere, and the conventions that
+identify the work are citable `AR#`, not folklore in a plan file. New ids start at `AR28`.
+
+1. `AR20` and `AR21` restated for `ADR-008`: the step is the dependency boundary, the task the
+   reversibility boundary, `F0`–`F6` inside every task. *Proof:* no `M<n>.F<k>` id left outside acts.
+2. `PLANNING.md` and the exemplar: `LADDER_PLAN_M_1.md` becomes `BLUEPRINT_M_01.md`, steps holding
+   tasks, each task listing its seven phases. `PROTOCOL` S6–S7, `CHECKLIST`, `TRACE`, the role files and
+   the README follow.
+3. **No inheritance for reuse** — interface composition only; presentation reuse by composition or a
+   presenter. Kind: invariant (D8).
+4. **Banned names**, with `Core` narrowed to "a type or namespace named Core", since `_CORE` is a domain.
+5. **Interface-first signatures**: services accept `I`, never `M`. Kind: invariant.
+6. **The prefix register**: the full active set and the reserved ones with their triggers; `R` settled
+   (D3). Amends `AR10`.
+7. `PHASES.md` made generic (a binding block, no card-game examples, `S#` read as `T##`) and its phase
+   reading settled (D11).
+8. Every norm heading carries an anchor (`§AR28`), so a descendant's citation resolves.
+
+### Module 3 — the gates, as `_PROBE` tests
+
+**Objective.** The norms a machine can check are checked, each gate seen failing first, and
+`dotnet test` stays the only toolchain.
+
+1. **The arrow**: each app's `_PROBE` reads the `.csproj` files and refuses `AR3`, `AR4`, `AR5` and
+   `AR8`. *Proof:* a planted reference fails it.
+2. **Recognisers** for the retired forms: `DC#` and the Classic paths outside the acts and the attic.
+3. **The link gate**: every internal link resolves, and every guideline is within two links of the
+   entry point. Where it lives is a question for the Regent: each app is deletable, so a
+   repository-level probe is a new project (`AR9`).
+4. `.gitattributes` pins LF for documents and recorded outputs.
+5. bUnit joins the `_PROBE` tooling in `Directory.Build.props`, so the Razor markup has a gate.
+
+### Module 4 — adopting an existing codebase
+
+**Objective.** `PROTOCOL.md` has a second way in: a codebase that already exists is measured before
+it is moved, and its current output is the oracle every change is checked against.
+
+1. A map template: one line per file, the `AR#` it answers to, a verdict (*conforms*, *partial*,
+   *violates*, *empty*, *disappears*) and the module that repairs it.
+2. The oracle: the output recorded before the first change; known defects pinned with their reason and
+   not fixed during the migration.
+3. `PROTOCOL` gains the entry, ending where S5 begins.
+
+### Module 5 — the template as a source, and the operating machinery
+
+1. What a clone inherits and what it cites (D10), written in `.shortcuts/` and the README.
+2. The lineage manifest: from a code file to the norms that govern it, and back.
+3. The ledger kept true at every boundary.
+
+### Module 6 — template expansion (Regent, `AR9`)
+
+Nothing is created without confirmation. Each candidate runs `PROTOCOL` S2 first and returns as a
+plan.
+
+| candidate | evidence |
 |---|---|
-| `AGENTS.md` | `.shortcuts/README.md` (where I am, five-line map, question table) |
-| `PLAN/` | `.plan/`, with the "open / authorised / deferred" sections |
-| `DECISIONS/` | `.decisions/` (norms stay; the prohibitions are pointed at from `.constraints/`) |
-| `SOURCES/` | `.sources/` (facts) |
-| `SOURCES/CHANGELOG.md` | `.changelog/README.md` (the rule) and root `CHANGELOG.md` (the record) |
-| `TEAM/` | `.team/` — a project spec overrides the library (`layouts.md` §3) |
-| — | `.constraints/`, `.orders/`, `.history/` |
-
-1. T01 — Baseline: list every internal link. *Proof:* all resolve before anything moves.
-2. T02 — `DC4`: adopt the Dotted layout. *Cites:* `DC2`. *Proof:* supersedes nothing silently.
-3. T03 — One `git mv` per axis, links fixed in the same commit. *Cites:* `DC2`. *Proof:* link list from T01 still resolves.
-4. T04 — `.shortcuts/README.md` from the template; id grammar and "rules that do not bend" move to `.constraints/`. *Proof:* no fact in two places.
-5. T05 — `.constraints/` "Do artefato" points at `AR3`, `AR4`, `AR9`, `AR14` and the never-happen list. *Proof:* it points and never copies.
-6. T06 — README layout block and branch table corrected (D1). *Proof:* matches `git branch -vv`.
-
-### R2 — Promote the code conventions to norms, born anchored
-
-**Objective.** The conventions that identify the work are citable `AR#`, not folklore in an
-untracked file. Ids go to the next free number, `AR28` on `ORBITAL_TEMPLATE` (`AR26`/`AR27` exist there).
-
-1. T01 — **No inheritance for reuse**: interface composition only; presentation reuse by composition or a Presenter. Kind: invariant. *Proof:* `PHASES.md` lint 7–8 reworded as a checklist.
-2. T02 — **Banned names**, with `Core` narrowed to "a type or namespace named Core". *Proof:* a grep list that returns nothing.
-3. T03 — **Interface-first signatures**: services accept `I`, never `M`. Kind: invariant.
-4. T04 — **Prefix register**: the full set, reserved ones with their triggers; `R` resolved (D3). Amends `AR10`.
-5. T05 — `PHASES.md` made generic (binding block, no card-game examples); `ADR#` becomes `DC#`; `S#` mapped through regency `vocabulary-map.md`.
-6. T06 — Each norm carries a heading anchor `§AR28`, and the existing `DC#` headings gain `§DC#`. *Proof:* every citation resolves (`virtualpath.md` §2: anchors are exact).
-
-### R3 — Apply Glyph's current specs
-
-**Objective.** `_ORBITAL` inherits what Glyph learnt, without importing Glyph's domain.
-
-1. T01 — **Method rows** into `.constraints/`: a gate is trusted only after it is seen failing; a retired construct becomes a recogniser; a known loss is pinned with its reason and inverted, never deleted; nothing disappears silently; the prose declares the state, never the correction.
-2. T02 — **Source and projection** for the flow files (D7). `flow.pgml` is the readable source; `.hgml`, `.min.hgml` and `.xml` are regenerated, never edited. The shortcut records source, copy and rebuild command. *Proof:* the round trip Glyph guarantees (`diag`) passes.
-3. T03 — Fill or mark every empty slot in `flow.pgml` as `[TBD — owner]`; none is "fixed" by guessing.
-4. T04 — **Link gate**: every internal link resolves and every document is within two links of the index. *Proof:* planted broken link, gate fails, then green.
-5. T05 — Version scheme recorded in `.changelog/README.md` (D4); `Directory.Build.props` comment points at it.
-6. T06 — Language rule recorded (D6).
-
-### R4 — Lineage and ledger
-
-**Objective.** From a code file to the norms that govern it, and from a norm to its files, with
-no search. Adoption order is cheapest first: anchors resolve, manifest valid, staleness fires.
-
-| Slice | Governs | `on_mutation` (proposal) |
-|---|---|---|
-| `AR22`, `AR25` | `Directory.Build.props` | `mark_stale` |
-| `AR3`, `AR4`, `AR5` | every `*.csproj` `ProjectReference` | `lock` |
-| `AR1`, `AR8`, `AR10`, `AR11` | project and concept folders | `mark_stale` |
-| lifecycle A–F, `AR27` | `flow.pgml` blocks (`glyph_block` selector) | `mark_stale` |
-
-On `main` the targets are `Directory.Build.props` and `_ORBITAL.slnx` only; the app projects exist
-on `ORBITAL_TEMPLATE`. That is why D1 comes first.
-
-1. T01 — Plant a citation that points nowhere; `vp.py check` must fail, then pass. Also learn whether `refers_to` accepts folders.
-2. T02 — `manifesto.json` born listing, not failing.
-3. T03 — Baseline commit recorded; turn staleness on.
-4. T04 — The ledger kept true on every boundary; `done` leaves at handoff.
-
-### R5 — Operating machinery
-
-1. T01 — `.orders/`: one Order per module, `ORD-####`, one open at a time; material that arrives mid-Order becomes `INTAKE-*`.
-2. T02 — `.shortcuts/README.md` "Onde estou" kept true by the agent.
-3. T03 — `.sources/` stays honest: only references that decided something. Empty is allowed.
-4. T04 — `.history/` records every retirement (`AR9` is not touched).
-
-### R6 — Template expansion (Regent, `AR9`)
-
-Nothing is created without confirmation. Each candidate runs `PROTOCOL.md` S2 first and returns as a plan.
-
-| Candidate | Evidence |
-|---|---|
-| Conformance sweep of the five app templates against `AR1`–`AR10` | five apps with `_CORE/_ENGINE/_DRIVE/_PANEL/_PROBE` seen in build output; the tracked tree was not listed |
-| Frontend documentation (`.ux/`) for the Blazor/Tailwind panels | `DESKTOP_PANEL/wwwroot/output.css`; `/regency:ux-init` |
-| Run `LADDER_PLAN_M_1` to a closed gate as the worked example | `PLAN/LADDER_PLAN_M_1.md` exists |
-| Orders authored in Glyph (`germinate`, `handoff`, `resume`) | `glyph-markup/.scope/generics/*.pgml` |
+| Conformance sweep of the five app templates against `AR1`–`AR10` | five apps with `_CORE`, `_ENGINE`, `_DRIVE`, `_PANEL` and `_PROBE`; module 3's arrow gives the first measure |
+| Frontend documentation (`.ux/`) for the Blazor panels | `DESKTOP_PANEL`, `WEB_PANEL`; `/regency:ux-init` |
+| Run `BLUEPRINT_M_01` to a signed gate as the worked example | the exemplar exists |
 
 ## 4. Order
 
 ```
-R0 decide ──▶ R1 layout ──▶ R2 norms (anchored) ──▶ R4 lineage ──▶ R6 expansion
-                   └──────▶ R3 Glyph specs ────────────┘
-                   └──────▶ R5 machinery (parallel after R1)
+M1 ──▶ M2 ──▶ M3 ──▶ M4
+         └──────▶ M5 ──▶ M6
 ```
 
 ## 5. Not verified
 
-`library/team/references/vocabulary-map.md` and `TEAM/ORCHESTRATION.md` were not read.
-`inspection.pgml`, `production_level_flow.xml` and `min_max_ladder.zip` were not opened.
-The `ORBITAL_TEMPLATE` norms were read from a diff, not from a checkout. Whether `vp.py`
-resolves folders in `refers_to` is unknown until R4.T01.
+The `F3`–`F5` reading of AutoRpg (D11) was taken from its ladder's legend, not from its code.
+Glyph's gate scripts were read from their headers, not run. instituto-conforme's own gate,
+`scripts/check_guidelines.py`, was not read.

@@ -1,7 +1,7 @@
 # _ORBITAL
 
 A template for starting software projects: a set of conventions, a derivation protocol, a
-planning ladder that runs from a client's problem to a deliverable, and four working app
+planning ladder that runs from a client's problem to a deliverable, and five working app
 templates to start from.
 
 | App | Projects | What it is |
@@ -16,7 +16,7 @@ Twenty-one projects, 124 tests, building clean. They are a **starting point, not
 clone, rename the concepts to your domain, delete what you do not need.
 
 Each app is **independently deletable**. No app references another, so removing three of them
-leaves the fourth working. That costs some duplication — `UPLINK_DRIVE` and `BEACON_DRIVE`
+leaves the other two working. That costs some duplication — `UPLINK_DRIVE` and `BEACON_DRIVE`
 are near-identical — and it is the right trade, because the unit anyone reuses here is a
 whole app, not a class.
 
@@ -37,32 +37,30 @@ and a gate that refuses to open execution on a plan that does not close.
 git clone <this repo> <your-project>
 ```
 
-Then, locally — this file is gitignored on purpose, because agent working setup is personal
-and not published content:
-
-```bash
-echo "Read \`Docs/.guidelines/AGENTS.md\` before acting." > CLAUDE.md
-```
-
-Then fill in `Docs/.guidelines/SOURCES/BRIEFING.md` with whatever you know about the problem,
-and run `Docs/.guidelines/PROTOCOL.md` from S0. The gaps in the briefing get interviewed
+The root `CLAUDE.md` comes with the clone and points at the entry, so an agent opening the
+repository finds it without setup. Then fill in `Docs/.guidelines/.sources/BRIEFING.md` with
+whatever you know about the problem, and run `Docs/.guidelines/PROTOCOL.md` from S0. The gaps in the briefing get interviewed
 before anything is derived — that is the one rule the whole scaffold rests on.
 
 ## Layout
 
 ```
 Docs/.guidelines/          the only published guideline set
-├── AGENTS.md              entry point and reading order
 ├── PROTOCOL.md            the derivation algorithm, S0 to S9
-├── SOURCES/               facts    - what the system is
-├── DECISIONS/             rules    - what may and may not
-├── TEAM/                  roles    - who decides what
-└── PLAN/                  the ladder - what gets built, in what order
+├── .shortcuts/            the entry point: where the work stands, which file answers what
+├── .sources/              facts      - what the system is built from
+├── .decisions/            rules      - the ADR register and the AR / BR norms
+├── .plan/                 the ladder - what gets built, in what order
+├── .orders/               the Orders - the contract that dispatches the work
+├── .constraints/          what the project forbids itself
+├── .changelog/            how the version number moves
+├── .team/                 roles      - who decides what
+└── .history/              the attic  - what stopped being true, with the reason
 ```
 
 The split is by **nature**, not by subject. An out-of-date fact is a documentation defect; an
 out-of-date rule is a process defect. They are repaired differently, so they are stored
-separately.
+separately. Start at [`.shortcuts/README.md`](Docs/.guidelines/.shortcuts/README.md).
 
 ## The conventions, in brief
 
@@ -86,7 +84,7 @@ same problem the same way:
 | Task | why it exists → clarification → the commit → the files → the edits → the test that proves it |
 | Method | Statement → Arguments → Dependency → Operation → Goal |
 
-Full detail: [`ARCHITECTURE.md`](Docs/.guidelines/DECISIONS/ARCHITECTURE.md).
+Full detail: [`ARCHITECTURE.md`](Docs/.guidelines/.decisions/ARCHITECTURE.md).
 
 ## The ladder
 
@@ -95,7 +93,7 @@ phase holding **tasks** (`T#`). One task is one commit, always the smallest diff
 citing a norm and naming the test that proves it.
 
 Execution opens only through a gate, and the gate is a formula rather than an opinion. It is
-defined once, in [`PLANNING.md`](Docs/.guidelines/PLAN/PLANNING.md#gate-formula).
+defined once, in [`PLANNING.md`](Docs/.guidelines/.plan/PLANNING.md#gate-formula).
 
 ## Build
 

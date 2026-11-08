@@ -13,7 +13,7 @@ Normative force uses RFC 2119 keywords: **MUST**, **MUST NOT**, **SHOULD**, **MA
 **NOTE**. They are literal and greppable. "Should" in ordinary prose is not a norm; the
 bold keyword is.
 
-The other two norm registers are `DECISIONS.md` (`DC#` — why a choice was made) and
+The other two norm registers are `.decisions/README.md` (`ADR-###` — why a choice was made) and
 `BUSINESS_RULES.md` (`BR#` — what the domain requires). Together they are the only three
 things a task may cite.
 
@@ -178,7 +178,7 @@ with nothing in it **MUST** declare itself empty; it is never omitted.
 
 | Phase | Name | Publishes |
 |---|---|---|
-| F0 | Norm | the citable rule the rest obeys — a new `DC`, `AR` or `BR` |
+| F0 | Norm | the citable rule the rest obeys — a new `ADR-###`, `AR` or `BR` |
 | F1 | Contract | types, signatures, schema — steps 1 and 2 of the type table |
 | F2 | Rule | behaviour proven by `_PROBE` — steps 4 and 5 of the type table |
 | F3 | Exposure | the outward surface: `_DRIVE` endpoints, `_PANEL` composition and authorization |
@@ -254,7 +254,7 @@ having different conversations with the same words.
 | **Module** (`M#`) | One step of the ladder: a coherent, deliverable, reversible increment |
 | **Phase** (`F0`–`F6`) | A dependency boundary inside a module. Every module has all seven |
 | **Task** (`T#`) | One commit. Always `D1`. Cites a norm, names a test |
-| **Norm** | A citable rule: `DC#`, `AR#` or `BR#`. See AR26 for the two kinds |
+| **Norm** | A citable rule: `ADR-###`, `AR#` or `BR#`. See AR26 for the two kinds |
 | **Gate** | The sheet that decides whether execution may open. Also the general class of norm above |
 | **POC** | A disposable proof of viability. Lives on a branch that never merges |
 | **Oracle** | An independent path to confirming a result, sharing no code with the thing it checks |
@@ -280,7 +280,7 @@ depends on whose tool you are holding.
 | **Hook** *[vendor]* | Code that intercepts a tool call before or after it runs. Enforcement the model cannot talk its way around |
 | **Worktree** *[general, from git]* | A second checkout of the same repository at a different path, so work can proceed on an isolated copy without disturbing the main one |
 | **Plan mode** *[vendor]* | A mode where the agent may read but not write, ending in an explicit approval before anything changes |
-| **Prompt injection** *[general]* | Instructions planted in data — a file, a page, a comment — written to be obeyed as if a person had asked. `DC2` exists because of a real instance of this |
+| **Prompt injection** *[general]* | Instructions planted in data — a file, a page, a comment — written to be obeyed as if a person had asked. `ADR-002` exists because of a real instance of this |
 
 ### The distinction worth keeping
 

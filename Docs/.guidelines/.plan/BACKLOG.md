@@ -4,7 +4,7 @@
 
 Every functional and non-functional item, with a stable id. The backlog rules on **fact** —
 what exists, what is missing, what it costs. It never holds a business rule; those live in
-`DECISIONS/BUSINESS_RULES.md`, and when this file appears to state one it is quoting.
+`.decisions/BUSINESS_RULES.md`, and when this file appears to state one it is quoting.
 
 A `B#` is **stable for the life of the project**. An item that moves from missing to built
 keeps its id, because `TRACE.md` refers to it and a renumbered backlog silently breaks the

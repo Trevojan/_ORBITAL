@@ -13,7 +13,7 @@ haste.
 
 ## Client problem
 
-`[TBD]` — one sentence, from `SOURCES/BRIEFING.md` field 1: what hurts, for whom.
+`[TBD]` — one sentence, from `.sources/BRIEFING.md` field 1: what hurts, for whom.
 
 ## Ideal system
 

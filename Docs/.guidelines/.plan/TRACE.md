@@ -31,7 +31,7 @@ Every task in every module declares where it came from. Three legal origins:
 |---|---|
 | `B<n>` | it builds a backlog item |
 | `origin: GRAND` | it comes from the ideal, and the backlog never recorded it |
-| `origin: norm` | it exists because a `DC#`, `AR#` or `BR#` requires it |
+| `origin: norm` | it exists because an `ADR-###`, `AR#` or `BR#` requires it |
 
 **Closure check:** no task without one of the three.
 

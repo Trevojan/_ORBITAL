@@ -48,7 +48,7 @@ signature.
 - **Data (DA)** — available: `[TBD]`; new: `[TBD]`; backfill: `[TBD]`; read compatibility:
   `[TBD]`
 - **Effort (DV)** — starting pattern: `[TBD]`; effort: `[TBD]`; risk: `[TBD]`; rollback:
-  `[TBD]`; accepted debt: `[TBD: DC#]`
+  `[TBD]`; accepted debt: `[TBD: ADR-###]`
 - **Verifiability (QA)** — new cases: `[TBD]`; inherited cases that must keep passing:
   `[TBD]`; deliberately uncovered: `[TBD]`
 
@@ -117,7 +117,7 @@ test name and the commit subject. What is not written now: the function bodies.
 
 | Task | Covers | Files | Function / signature | Norm | Test | Commit |
 |---|---|---|---|---|---|---|
-| `M1.F6.T01` | `origin: norm` | `SOURCES/CHANGELOG.md` | — | `PLANNING §9` | — | `[TBD]` |
+| `M1.F6.T01` | `origin: norm` | `CHANGELOG.md` | — | `PLANNING §9` | — | `[TBD]` |
 
 ---
 

@@ -40,7 +40,7 @@ live with?*
 - Put every rule in exactly one place, so two answers can never disagree
 - Estimate honestly, including the maintenance cost, and name a cheaper alternative
 - Attest the effort line: starting pattern, effort, risk, rollback, accepted debt
-- Record a decision as a `DC#` when it is not obvious to whoever arrives later
+- Record a decision as an `ADR-###` when it is not obvious to whoever arrives later
 - Keep the build free of new warnings
 - Say when a blueprint cannot be built as written, before starting it
 
@@ -59,7 +59,7 @@ live with?*
 3. Work the phases in order — `F0` through `F6`; the order is a dependency, not a habit
 4. Per task: write the failing test, make it pass, keep it one commit
 5. Build clean; run the probes project by project
-6. Record any non-obvious choice as a `DC#`
+6. Record any non-obvious choice as an `ADR-###`
 7. Hand a testable build to QA with notes on what changed
 8. Update the changelog in the module's `F6`
 
@@ -80,10 +80,10 @@ live with?*
 |---|---|
 | Source | `<APP>_ORBITAL/<CONCEPT>_<DOMAIN>/` |
 | Tests | `<APP>_ORBITAL/<CONCEPT>_PROBE/` |
-| Architecture norms | `Docs/.guidelines/DECISIONS/ARCHITECTURE.md` |
-| Decisions | `Docs/.guidelines/DECISIONS/DECISIONS.md` |
-| Dependencies | `Docs/.guidelines/DECISIONS/DEPENDENCIES.md` |
-| Changelog | `Docs/.guidelines/SOURCES/CHANGELOG.md` |
+| Architecture norms | `Docs/.guidelines/.decisions/ARCHITECTURE.md` |
+| Decisions | `Docs/.guidelines/.decisions/README.md` |
+| Dependencies | `Docs/.guidelines/.decisions/DEPENDENCIES.md` |
+| Changelog | `CHANGELOG.md` at the repository root |
 
 ## 8. Role in the Plans
 
@@ -91,7 +91,7 @@ live with?*
   match it, so no module builds something the ideal would have to demolish
 - **MINIMUM** — says which factors are technically reachable in the declared span
 - **LADDER** — attests the effort line of every module: starting pattern, effort, risk,
-  rollback path, and the debt being accepted with the `DC#` that records it
+  rollback path, and the debt being accepted with the `ADR-###` that records it
 - **Gate** — one of the three attestations; a negative one changes the module or the POC
 
 ## 9. Maturity Ladder
@@ -116,7 +116,7 @@ way to get this wrong in the expensive direction.
 - [ ] The task's cited norm is actually obeyed by the code
 - [ ] The named test exists and fails when the behaviour is removed
 - [ ] No rule implemented in two places
-- [ ] Any non-obvious choice recorded as a `DC#`
+- [ ] Any non-obvious choice recorded as an `ADR-###`
 - [ ] Changelog entry written in business language, not diff language
 
 ## 11. Handoff Triggers

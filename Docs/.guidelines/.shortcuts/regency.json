@@ -13,5 +13,14 @@
       "plan": "UPD-1bf20b2e",
       "ops": 1
     }
-  ]
+  ],
+  "merged": {
+    ".changelog/README.md": "e82c404fa895",
+    ".constraints/README.md": "0264199768c4",
+    ".decisions/README.md": "d16696065419",
+    ".history/README.md": "060474fa3e06",
+    ".orders/README.md": "1da712532c2e",
+    ".plan/README.md": "7e6794b5d5b2",
+    ".sources/README.md": "1a9d70ab5ec2"
+  }
 }

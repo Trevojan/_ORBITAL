@@ -389,6 +389,8 @@ FodyWeavers.xsd
 
 # Local History for Visual Studio Code
 .history/
+# ...except the guidelines' attic, which is published on purpose.
+!Docs/.guidelines/.history/
 
 # Windows Installer files from build outputs
 *.cab
@@ -400,9 +402,8 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-# Agent instruction files at the root. Kept local on purpose and pasted back in
-# after a clone - they are not part of what this repository publishes.
-/CLAUDE.md
+# The root AGENTS.md is personal working setup and stays local. The root CLAUDE.md
+# is published: it only points at Docs/.guidelines/.shortcuts/README.md (ADR-011).
 /AGENTS.md
 
 # .scope holds client material: briefs, contracts, exports, handovers - anything

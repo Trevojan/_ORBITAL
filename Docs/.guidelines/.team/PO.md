@@ -82,13 +82,13 @@ smallest thing that ends it?*
 
 | Artefact | Path |
 |---|---|
-| Briefing | `Docs/.guidelines/SOURCES/BRIEFING.md` |
-| Grand plan | `Docs/.guidelines/PLAN/GRAND_PLAN.md` |
-| Minimum plan | `Docs/.guidelines/PLAN/MINIMUM_PLAN.md` |
-| Module blueprints | `Docs/.guidelines/PLAN/LADDER_PLAN_M_<n>.md` |
-| Backlog | `Docs/.guidelines/PLAN/BACKLOG.md` |
-| Trace | `Docs/.guidelines/PLAN/TRACE.md` |
-| Gate sheets | `Docs/.guidelines/PLAN/GATE_M<n>_<date>.md` |
+| Briefing | `Docs/.guidelines/.sources/BRIEFING.md` |
+| Grand plan | `Docs/.guidelines/.plan/GRAND_PLAN.md` |
+| Minimum plan | `Docs/.guidelines/.plan/MINIMUM_PLAN.md` |
+| Module blueprints | `Docs/.guidelines/.plan/LADDER_PLAN_M_<n>.md` |
+| Backlog | `Docs/.guidelines/.plan/BACKLOG.md` |
+| Trace | `Docs/.guidelines/.plan/TRACE.md` |
+| Gate sheets | `Docs/.guidelines/.plan/GATE_M<n>_<date>.md` |
 
 ## 8. Role in the Plans
 

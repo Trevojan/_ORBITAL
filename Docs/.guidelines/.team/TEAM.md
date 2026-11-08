@@ -81,12 +81,12 @@ No cell is empty.
 
 ## 4. Planning cycle
 
-Three living documents, always present: `PLAN/GRAND_PLAN.md` (the ideal, the ceiling of
-coherence), `PLAN/MINIMUM_PLAN.md` (the shortest path to the MVP) and
-`PLAN/LADDER_PLAN_M_X.md` (one file per module).
+Three living documents, always present: `.plan/GRAND_PLAN.md` (the ideal, the ceiling of
+coherence), `.plan/MINIMUM_PLAN.md` (the shortest path to the MVP) and
+`.plan/LADDER_PLAN_M_X.md` (one file per module).
 
 Execution opens through the gate. **The gate formula is defined in
-[`PLAN/PLANNING.md`](../PLAN/PLANNING.md#gate-formula) and nowhere else** — including here.
+[`.plan/PLANNING.md`](../.plan/PLANNING.md#gate-formula) and nowhere else** — including here.
 Restating it is how it drifts.
 
 Responsibility: the **PO** owns the three files and the gate. The **DA** attests the data
@@ -119,7 +119,7 @@ Each role has its analogous ladder in its own section 9. The rules are the same 
 
 - **Module** — a coherent, deliverable, reversible increment; one step of the ladder.
 - **Task** — one commit. Difficulty `D1` by definition.
-- **Norm** — a citable rule: a `DC#`, `AR#` or `BR#`.
+- **Norm** — a citable rule: an `ADR-###`, `AR#` or `BR#`.
 - **POC** — a disposable proof of viability; it never becomes production.
 - **Risk opinion** — QA's written statement of what was not covered.
 - **Version verdict** — QA's classification of an increment: correction, compatible

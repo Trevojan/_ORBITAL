@@ -35,7 +35,7 @@ must reach the fruit.**
 
 | Part | System scale | Task scale (`T#`) |
 |---|---|---|
-| **Root** | the client's problem — `SOURCES/BRIEFING.md` | why this task exists: the norm it obeys |
+| **Root** | the client's problem — `.sources/BRIEFING.md` | why this task exists: the norm it obeys |
 | **Fertilizer** | context added to deepen the root — interview answers, new facts | clarification that refines the task before it starts |
 | **Trunk** | the effort — the ladder `M1..Mn` | the single commit |
 | **Branches** | the resources — projects and files | the files this task touches |
@@ -58,23 +58,23 @@ Operation, fruit the Goal.
 
 | Step | From → To | Stop condition |
 |---|---|---|
-| **S0** | client situation → `SOURCES/BRIEFING.md` | **blocking** — no field unanswered or unmarked |
-| **S1** | briefing → `PLAN/GRAND_PLAN.md` | ≤120 lines; every section present |
+| **S0** | client situation → `.sources/BRIEFING.md` | **blocking** — no field unanswered or unmarked |
+| **S1** | briefing → `.plan/GRAND_PLAN.md` | ≤120 lines; every section present |
 | **S2** | domain nouns → concepts → projects + `AR#` | every concept resolved; **nothing created** |
-| **S3** | scope → `PLAN/BACKLOG.md` | every item has `B#`, category, `D1`–`D3` |
-| **S4** | backlog → `PLAN/MINIMUM_PLAN.md` | ≤90 lines; `N_mvp` declared; nuclear POC written |
+| **S3** | scope → `.plan/BACKLOG.md` | every item has `B#`, category, `D1`–`D3` |
+| **S4** | backlog → `.plan/MINIMUM_PLAN.md` | ≤90 lines; `N_mvp` declared; nuclear POC written |
 | **S5** | backlog → modules `M1..Mn` | ordered by real dependency |
 | **S6** | each module → phases `F0..F6` | seven phases present; empty ones declared empty |
 | **S7** | each phase → tasks `T#` | every task meets the definition of done |
 | **S8** | S5–S7 → `CHECKLIST.md`, `TRACE.md` | trace closes both ways |
-| **S9** | all → `PLAN/GATE_M1_<date>.md` | `SOLUTION: yes` opens execution |
+| **S9** | all → `.plan/GATE_M1_<date>.md` | `SOLUTION: yes` opens execution |
 
 ---
 
 ### S0 — Briefing
 
 **Consumes** whatever the client said, however unstructured.
-**Produces** `SOURCES/BRIEFING.md` with all eleven fields answered or explicitly marked.
+**Produces** `.sources/BRIEFING.md` with all eleven fields answered or explicitly marked.
 
 Fill in what was given. Then interview the gaps **in field order**, one at a time, without
 skipping ahead to design. An unanswered field becomes either `[TBD — owner: <name>]` or a
@@ -88,7 +88,7 @@ candidate POC recorded in field 11.
 
 ### S1 — Grand plan
 
-**Consumes** the briefing. **Produces** `PLAN/GRAND_PLAN.md`, at most 120 lines.
+**Consumes** the briefing. **Produces** `.plan/GRAND_PLAN.md`, at most 120 lines.
 
 The ideal system, with no schedule and no commitment. It is the **ceiling of coherence**:
 nothing enters the ladder that contradicts it. It is not a promise of delivery.
@@ -123,7 +123,7 @@ This is the concept alignment the template exists for.
 
 ### S3 — Backlog
 
-**Consumes** the grand plan and the briefing's scope. **Produces** `PLAN/BACKLOG.md`.
+**Consumes** the grand plan and the briefing's scope. **Produces** `.plan/BACKLOG.md`.
 
 Every functional and non-functional item becomes a row: `B#`, name, category, difficulty
 `D1`–`D3`. Non-functional items are marked `[late]`.
@@ -135,7 +135,7 @@ never holds a business rule; those live in `BUSINESS_RULES.md`.
 
 ### S4 — Minimum plan
 
-**Consumes** the backlog and briefing field 4. **Produces** `PLAN/MINIMUM_PLAN.md`, at most
+**Consumes** the backlog and briefing field 4. **Produces** `.plan/MINIMUM_PLAN.md`, at most
 90 lines.
 
 The shortest path that solves the client's problem end to end, for one user, with common
@@ -246,9 +246,9 @@ that never became a backlog item.
 
 ### S9 — Gate
 
-**Consumes** everything. **Produces** `PLAN/GATE_M1_<date>.md`.
+**Consumes** everything. **Produces** `.plan/GATE_M1_<date>.md`.
 
-The formula lives in `PLAN/PLANNING.md` and is stated **there and nowhere else**. Verify
+The formula lives in `.plan/PLANNING.md` and is stated **there and nowhere else**. Verify
 its two conditions, attach the three attestations, and record the verdict.
 
 `SOLUTION: yes` opens execution at `M1.F0.T01`.

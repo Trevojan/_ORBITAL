@@ -141,7 +141,7 @@ One file per module. Never overwritten once frozen.
 
 ## Attestations
 - **Data (DA)** — available: …; new: …; backfill: …; read compatibility: …
-- **Effort (DV)** — starting pattern: …; effort: …; risk: …; rollback: …; accepted debt: <DC#>
+- **Effort (DV)** — starting pattern: …; effort: …; risk: …; rollback: …; accepted debt: <ADR-###>
 - **Verifiability (QA)** — new cases: …; inherited cases that must keep passing: …;
   deliberately uncovered: …
 
@@ -173,7 +173,7 @@ One file per module. Never overwritten once frozen.
 
 ## Gate sheet
 
-Two kinds. Both live in `PLAN/GATE_M<X>_<date>.md`.
+Two kinds. Both live in `.plan/GATE_M<X>_<date>.md`.
 
 ```markdown
 # GATE — <date> — opening M<X>

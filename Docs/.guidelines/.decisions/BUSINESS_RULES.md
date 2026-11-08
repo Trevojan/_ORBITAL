@@ -102,7 +102,7 @@ under the old rule still exist, and somebody will ask why they do not reproduce.
 1. Change it **here** first.
 2. Update the test — it **MUST** go red before any service is touched.
 3. Make the service green.
-4. Record the observable difference in `SOURCES/CHANGELOG.md`.
-5. If the decision was not obvious, write the `DC#`.
+4. Record the observable difference in `CHANGELOG.md`.
+5. If the decision was not obvious, write the `ADR-###`.
 
 Documents before code, always. A rule changed in code first is a rule nobody agreed to.

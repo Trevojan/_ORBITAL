@@ -15,11 +15,12 @@
 	</PropertyGroup>
 
 	<!--
-	  The version SemVer applies to. Keep it in step with SOURCES/CHANGELOG.md.
-	  0.x is honest for a system whose shape is still moving.
+	  rule . structure . surface . record, and no digit resets another (ADR-010).
+	  The rule is in Docs/.guidelines/.changelog/; the top entry of CHANGELOG.md
+	  carries the same number, and the two change in the same commit.
 	-->
 	<PropertyGroup>
-		<Version>0.1.0</Version>
+		<Version>0.1.0.01</Version>
 	</PropertyGroup>
 
 	<!--

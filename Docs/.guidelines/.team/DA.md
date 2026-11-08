@@ -88,8 +88,8 @@ cost to the model?*
 
 | Artefact | Path |
 |---|---|
-| Data model | `Docs/.guidelines/SOURCES/DATA_MODEL.md` |
-| Metric dictionary | `Docs/.guidelines/SOURCES/DATA_MODEL.md` — metrics section |
+| Data model | `Docs/.guidelines/.sources/DATA_MODEL.md` |
+| Metric dictionary | `Docs/.guidelines/.sources/DATA_MODEL.md` — metrics section |
 | Data contracts | `<APP>_ORBITAL/<CONCEPT>_ENGINE/` — as declared types |
 | Semantic layer | `<APP>_ORBITAL/<CONCEPT>_CORE/` — stable names over swappable storage |
 | Oracles | `<APP>_ORBITAL/<CONCEPT>_PROBE/` — independent confirmation paths |
